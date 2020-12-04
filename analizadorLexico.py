@@ -64,9 +64,20 @@ def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
     
+# Comentario simple // @ ...
 def t_COMENTARIO(t):
-    r'\@.*'
+    r'@.*'
     pass
+
+# Comentario de múltiples líneas /@ .. @/
+def t_COMENTARIO_MULTILINEA(t):
+    r'/\*(.|\n)*?\*/'
+    pass
+
+def t_ccode_nonspace(t):
+    r'\s+'
+    pass
+
 
 analizador = lex.lex()
 

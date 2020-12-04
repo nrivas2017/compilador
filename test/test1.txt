@@ -1,2 +1,4 @@
-ads=25 \n
+ads=25
+@asfsad
 1+1
+/@asasdf@/
