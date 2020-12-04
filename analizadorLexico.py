@@ -36,7 +36,8 @@ reservadas = {
     'ponwi' : 'PONWI', 
     'pekenun' : 'PEKENUN', 
     'inche' : 'INCHE', 
-    'chumnone' : 'CHUMNONE'
+    'chumnone' : 'CHUMNONE',
+    'rakin' : 'RAKIN'
 }
 
 

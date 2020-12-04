@@ -40,7 +40,7 @@ reservadas = {
     'pekenun' : 'PEKENUN', 
     'inche' : 'INCHE', 
     'chumnone' : 'CHUMNONE',
-    'numero':'NUMERO'
+    'rakin' : 'RAKIN'
 }
 
 
@@ -50,7 +50,7 @@ tokens= ['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
 		'COMA', 'IGUALQUE', 'CADENA','CONCAT'
         ] + list(reservadas.values())
 
-print (tokens)
+
 t_ignore = '\t'
 t_MAS = r'\+'
 t_MENOS = r'-'
@@ -176,6 +176,7 @@ def t_ccode_nonspace(t):
 import ply.lex as lex
 lexer = lex.lex()
 
+
 precedence = (
     ('right','ASIGNACION'),
     ('left','DISTINTO'),
@@ -196,6 +197,9 @@ def p_instrucciones_lista(t) :
     t[1].append(t[2])
     t[0] = t[1]
 
+def p_instruccion_definicion(t) :
+    'definicion_instr   : RAKIN ID'
+    t[0] =Definicion(t[2])
 
 def p_instrucciones_instruccion(t) :
     'instrucciones    : instruccion '
@@ -203,6 +207,7 @@ def p_instrucciones_instruccion(t) :
 
 def p_instruccion(t) :
     '''instruccion      : pekenun_instr
+                        | definicion_instr
                         | asignacion_instr
                         | tuntepu_instr
                         | li_instr
@@ -282,4 +287,5 @@ def p_error(t):
 parser = yacc.yacc()
 
 def parse(input) :
+   
     return parser.parse(input)

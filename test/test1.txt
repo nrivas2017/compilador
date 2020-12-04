@@ -1,2 +1,4 @@
-numero a
-a=1
+rakin a
+a = 3
+
+pekenun (a)

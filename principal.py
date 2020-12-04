@@ -7,12 +7,12 @@ def procesar_imprimir(instr, ts) :
     print('> ', resolver_cadena(instr.cad, ts))
 
 def procesar_definicion(instr, ts) :
-    simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.NUMERO, 0)      # inicializamos con 0 como valor por defecto
+    simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, 0)      # inicializamos con 0 como valor por defecto
     ts.agregar(simbolo)
 
 def procesar_asignacion(instr, ts) :
     val = resolver_expresion_aritmetica(instr.expNumerica, ts)
-    simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.NUMERO, val)
+    simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, val)
     ts.actualizar(simbolo)
 
 def procesar_mientras(instr, ts) :
@@ -84,10 +84,14 @@ def procesar_instrucciones(instrucciones, ts) :
         elif isinstance(instr, IfElse) : procesar_if_else(instr, ts)
         else : print('Error: instrucción no válida')
 
+
+
 f = open("./test/test1.txt", "r")
 input = f.read()
 
+
 instrucciones = g.parse(input)
+
 ts_global = TS.TablaDeSimbolos()
 
 procesar_instrucciones(instrucciones, ts_global)
