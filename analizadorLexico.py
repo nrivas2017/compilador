@@ -71,7 +71,7 @@ def t_COMENTARIO(t):
 
 # Comentario de múltiples líneas /@ .. @/
 def t_COMENTARIO_MULTILINEA(t):
-    r'/\*(.|\n)*?\*/'
+    r'/\@(.|\n)*?\@/'
     pass
 
 def t_ccode_nonspace(t):
