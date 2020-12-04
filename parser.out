@@ -8,8 +8,6 @@ Unused terminals:
     COMENTARIO_MULTILINEA
     DEUMAN
     INCHE
-    KAM
-    KAY
     KENUN
     KOM
     KONME
@@ -18,7 +16,6 @@ Unused terminals:
     NAMEMN
     NGUEN
     NON
-    NV
     PETULN
     PONWI
     POTENCIA
@@ -52,39 +49,45 @@ Rule 18    expresion_numerica -> expresion_numerica MAS expresion_numerica
 Rule 19    expresion_numerica -> expresion_numerica MENOS expresion_numerica
 Rule 20    expresion_numerica -> expresion_numerica POR expresion_numerica
 Rule 21    expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica
-Rule 22    expresion_numerica -> PAREIZQ expresion_numerica PAREDER
-Rule 23    expresion_numerica -> ENTERO
-Rule 24    expresion_numerica -> DECIMAL
-Rule 25    expresion_numerica -> ID
-Rule 26    expresion_cadena -> CADENA
-Rule 27    expresion_cadena -> expresion_cadena CONCAT expresion_cadena
-Rule 28    expresion_cadena -> expresion_numerica
-Rule 29    expresion_logica -> expresion_numerica MAYOR expresion_numerica
-Rule 30    expresion_logica -> expresion_numerica MENOR expresion_numerica
-Rule 31    expresion_logica -> expresion_numerica IGUALQUE expresion_numerica
-Rule 32    expresion_logica -> expresion_numerica DISTINTO expresion_numerica
+Rule 22    expresion_numerica -> expresion_numerica KAY expresion_numerica
+Rule 23    expresion_numerica -> expresion_numerica KAM expresion_numerica
+Rule 24    expresion_numerica -> expresion_numerica NV expresion_numerica
+Rule 25    expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+Rule 26    expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+Rule 27    expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+Rule 28    expresion_numerica -> PAREIZQ expresion_numerica PAREDER
+Rule 29    expresion_numerica -> ENTERO
+Rule 30    expresion_numerica -> DECIMAL
+Rule 31    expresion_numerica -> ID
+Rule 32    expresion_cadena -> CADENA
+Rule 33    expresion_cadena -> expresion_cadena CONCAT expresion_cadena
+Rule 34    expresion_cadena -> expresion_numerica
+Rule 35    expresion_logica -> expresion_numerica MAYOR expresion_numerica
+Rule 36    expresion_logica -> expresion_numerica MENOR expresion_numerica
+Rule 37    expresion_logica -> expresion_numerica IGUALQUE expresion_numerica
+Rule 38    expresion_logica -> expresion_numerica DISTINTO expresion_numerica
 
 Terminals, with rules where they appear
 
 AFN                  : 15 16 17 17
 ASIGNACION           : 13 14
-CADENA               : 26
+CADENA               : 32
 CHILLKA              : 4
 CHUMNONE             : 
 COMA                 : 
 COMENTARIO           : 
 COMENTARIO_MULTILINEA : 
-CONCAT               : 27
-DECIMAL              : 24
+CONCAT               : 33
+DECIMAL              : 30
 DEUMAN               : 
-DISTINTO             : 32
+DISTINTO             : 38
 DIVIDIDO             : 21
-ENTERO               : 23
-ID                   : 3 4 13 14 25
-IGUALQUE             : 31
+ENTERO               : 29
+ID                   : 3 4 13 14 31
+IGUALQUE             : 37
 INCHE                : 
-KAM                  : 
-KAY                  : 
+KAM                  : 23 26
+KAY                  : 22 25
 KENUN                : 
 KOM                  : 
 KONME                : 
@@ -92,17 +95,17 @@ KUDAW                :
 LI                   : 16 17
 LLITULUN             : 15 16 17 17
 MAS                  : 18
-MAYOR                : 29
-MENOR                : 30
+MAYOR                : 35
+MENOR                : 36
 MENOS                : 19
 MEW                  : 
 NAMEMN               : 
 NGUEN                : 
 NON                  : 
-NV                   : 
+NV                   : 24 27
 NVLI                 : 17
-PAREDER              : 12 15 16 17 22
-PAREIZQ              : 12 15 16 17 22
+PAREDER              : 12 15 16 17 25 26 27 28
+PAREIZQ              : 12 15 16 17 25 26 27 28
 PEKENUN              : 12
 PETULN               : 
 PONWI                : 
@@ -121,9 +124,9 @@ Nonterminals, with rules where they appear
 
 asignacion_instr     : 8
 definicion_instr     : 7
-expresion_cadena     : 12 14 27 27
+expresion_cadena     : 12 14 33 33
 expresion_logica     : 15 16 17
-expresion_numerica   : 13 18 18 19 19 20 20 21 21 22 28 29 29 30 30 31 31 32 32
+expresion_numerica   : 13 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26 26 27 27 28 34 35 35 36 36 37 37 38 38
 init                 : 0
 instruccion          : 2 5
 instrucciones        : 1 2 15 16 17 17
@@ -372,17 +375,23 @@ state 16
 state 17
 
     (12) pekenun_instr -> PEKENUN PAREIZQ . expresion_cadena PAREDER
-    (26) expresion_cadena -> . CADENA
-    (27) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
-    (28) expresion_cadena -> . expresion_numerica
+    (32) expresion_cadena -> . CADENA
+    (33) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (34) expresion_cadena -> . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     CADENA          shift and go to state 25
     PAREIZQ         shift and go to state 23
@@ -415,13 +424,19 @@ state 19
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
-    (26) expresion_cadena -> . CADENA
-    (27) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
-    (28) expresion_cadena -> . expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+    (32) expresion_cadena -> . CADENA
+    (33) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (34) expresion_cadena -> . expresion_numerica
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -449,18 +464,24 @@ state 20
 state 21
 
     (15) tuntepu_instr -> TUNTEPU PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN
-    (29) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
-    (30) expresion_logica -> . expresion_numerica MENOR expresion_numerica
-    (31) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
-    (32) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
+    (35) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
+    (36) expresion_logica -> . expresion_numerica MENOR expresion_numerica
+    (37) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
+    (38) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -474,18 +495,24 @@ state 22
 
     (16) li_instr -> LI PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN
     (17) nvli_instr -> LI PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
-    (29) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
-    (30) expresion_logica -> . expresion_numerica MENOR expresion_numerica
-    (31) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
-    (32) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
+    (35) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
+    (36) expresion_logica -> . expresion_numerica MENOR expresion_numerica
+    (37) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
+    (38) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -497,15 +524,24 @@ state 22
 
 state 23
 
-    (22) expresion_numerica -> PAREIZQ . expresion_numerica PAREDER
+    (25) expresion_numerica -> PAREIZQ . expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> PAREIZQ . expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> PAREIZQ . expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> PAREIZQ . expresion_numerica PAREDER
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -517,7 +553,7 @@ state 23
 state 24
 
     (12) pekenun_instr -> PEKENUN PAREIZQ expresion_cadena . PAREDER
-    (27) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+    (33) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
 
     PAREDER         shift and go to state 36
     CONCAT          shift and go to state 37
@@ -525,114 +561,129 @@ state 24
 
 state 25
 
-    (26) expresion_cadena -> CADENA .
+    (32) expresion_cadena -> CADENA .
 
-    PAREDER         reduce using rule 26 (expresion_cadena -> CADENA .)
-    CONCAT          reduce using rule 26 (expresion_cadena -> CADENA .)
-    PEKENUN         reduce using rule 26 (expresion_cadena -> CADENA .)
-    RAKIN           reduce using rule 26 (expresion_cadena -> CADENA .)
-    CHILLKA         reduce using rule 26 (expresion_cadena -> CADENA .)
-    ID              reduce using rule 26 (expresion_cadena -> CADENA .)
-    TUNTEPU         reduce using rule 26 (expresion_cadena -> CADENA .)
-    LI              reduce using rule 26 (expresion_cadena -> CADENA .)
-    $end            reduce using rule 26 (expresion_cadena -> CADENA .)
-    AFN             reduce using rule 26 (expresion_cadena -> CADENA .)
+    PAREDER         reduce using rule 32 (expresion_cadena -> CADENA .)
+    CONCAT          reduce using rule 32 (expresion_cadena -> CADENA .)
+    PEKENUN         reduce using rule 32 (expresion_cadena -> CADENA .)
+    RAKIN           reduce using rule 32 (expresion_cadena -> CADENA .)
+    CHILLKA         reduce using rule 32 (expresion_cadena -> CADENA .)
+    ID              reduce using rule 32 (expresion_cadena -> CADENA .)
+    TUNTEPU         reduce using rule 32 (expresion_cadena -> CADENA .)
+    LI              reduce using rule 32 (expresion_cadena -> CADENA .)
+    $end            reduce using rule 32 (expresion_cadena -> CADENA .)
+    AFN             reduce using rule 32 (expresion_cadena -> CADENA .)
 
 
 state 26
 
-    (28) expresion_cadena -> expresion_numerica .
+    (34) expresion_cadena -> expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    PAREDER         reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    CONCAT          reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    PEKENUN         reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    RAKIN           reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    CHILLKA         reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    ID              reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    TUNTEPU         reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    LI              reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    $end            reduce using rule 28 (expresion_cadena -> expresion_numerica .)
-    AFN             reduce using rule 28 (expresion_cadena -> expresion_numerica .)
+    PAREDER         reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    CONCAT          reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    PEKENUN         reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    RAKIN           reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    CHILLKA         reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    ID              reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    TUNTEPU         reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    LI              reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    $end            reduce using rule 34 (expresion_cadena -> expresion_numerica .)
+    AFN             reduce using rule 34 (expresion_cadena -> expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
 
 
 state 27
 
-    (23) expresion_numerica -> ENTERO .
+    (29) expresion_numerica -> ENTERO .
 
-    MAS             reduce using rule 23 (expresion_numerica -> ENTERO .)
-    MENOS           reduce using rule 23 (expresion_numerica -> ENTERO .)
-    POR             reduce using rule 23 (expresion_numerica -> ENTERO .)
-    DIVIDIDO        reduce using rule 23 (expresion_numerica -> ENTERO .)
-    PAREDER         reduce using rule 23 (expresion_numerica -> ENTERO .)
-    CONCAT          reduce using rule 23 (expresion_numerica -> ENTERO .)
-    PEKENUN         reduce using rule 23 (expresion_numerica -> ENTERO .)
-    RAKIN           reduce using rule 23 (expresion_numerica -> ENTERO .)
-    CHILLKA         reduce using rule 23 (expresion_numerica -> ENTERO .)
-    ID              reduce using rule 23 (expresion_numerica -> ENTERO .)
-    TUNTEPU         reduce using rule 23 (expresion_numerica -> ENTERO .)
-    LI              reduce using rule 23 (expresion_numerica -> ENTERO .)
-    $end            reduce using rule 23 (expresion_numerica -> ENTERO .)
-    AFN             reduce using rule 23 (expresion_numerica -> ENTERO .)
-    MAYOR           reduce using rule 23 (expresion_numerica -> ENTERO .)
-    MENOR           reduce using rule 23 (expresion_numerica -> ENTERO .)
-    IGUALQUE        reduce using rule 23 (expresion_numerica -> ENTERO .)
-    DISTINTO        reduce using rule 23 (expresion_numerica -> ENTERO .)
+    MAS             reduce using rule 29 (expresion_numerica -> ENTERO .)
+    MENOS           reduce using rule 29 (expresion_numerica -> ENTERO .)
+    POR             reduce using rule 29 (expresion_numerica -> ENTERO .)
+    DIVIDIDO        reduce using rule 29 (expresion_numerica -> ENTERO .)
+    KAY             reduce using rule 29 (expresion_numerica -> ENTERO .)
+    KAM             reduce using rule 29 (expresion_numerica -> ENTERO .)
+    NV              reduce using rule 29 (expresion_numerica -> ENTERO .)
+    PAREDER         reduce using rule 29 (expresion_numerica -> ENTERO .)
+    CONCAT          reduce using rule 29 (expresion_numerica -> ENTERO .)
+    PEKENUN         reduce using rule 29 (expresion_numerica -> ENTERO .)
+    RAKIN           reduce using rule 29 (expresion_numerica -> ENTERO .)
+    CHILLKA         reduce using rule 29 (expresion_numerica -> ENTERO .)
+    ID              reduce using rule 29 (expresion_numerica -> ENTERO .)
+    TUNTEPU         reduce using rule 29 (expresion_numerica -> ENTERO .)
+    LI              reduce using rule 29 (expresion_numerica -> ENTERO .)
+    $end            reduce using rule 29 (expresion_numerica -> ENTERO .)
+    AFN             reduce using rule 29 (expresion_numerica -> ENTERO .)
+    MAYOR           reduce using rule 29 (expresion_numerica -> ENTERO .)
+    MENOR           reduce using rule 29 (expresion_numerica -> ENTERO .)
+    IGUALQUE        reduce using rule 29 (expresion_numerica -> ENTERO .)
+    DISTINTO        reduce using rule 29 (expresion_numerica -> ENTERO .)
 
 
 state 28
 
-    (24) expresion_numerica -> DECIMAL .
+    (30) expresion_numerica -> DECIMAL .
 
-    MAS             reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    MENOS           reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    POR             reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    DIVIDIDO        reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    PAREDER         reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    CONCAT          reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    PEKENUN         reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    RAKIN           reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    CHILLKA         reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    ID              reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    TUNTEPU         reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    LI              reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    $end            reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    AFN             reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    MAYOR           reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    MENOR           reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    IGUALQUE        reduce using rule 24 (expresion_numerica -> DECIMAL .)
-    DISTINTO        reduce using rule 24 (expresion_numerica -> DECIMAL .)
+    MAS             reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    MENOS           reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    POR             reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    DIVIDIDO        reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    KAY             reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    KAM             reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    NV              reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    PAREDER         reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    CONCAT          reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    PEKENUN         reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    RAKIN           reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    CHILLKA         reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    ID              reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    TUNTEPU         reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    LI              reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    $end            reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    AFN             reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    MAYOR           reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    MENOR           reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    IGUALQUE        reduce using rule 30 (expresion_numerica -> DECIMAL .)
+    DISTINTO        reduce using rule 30 (expresion_numerica -> DECIMAL .)
 
 
 state 29
 
-    (25) expresion_numerica -> ID .
+    (31) expresion_numerica -> ID .
 
-    MAS             reduce using rule 25 (expresion_numerica -> ID .)
-    MENOS           reduce using rule 25 (expresion_numerica -> ID .)
-    POR             reduce using rule 25 (expresion_numerica -> ID .)
-    DIVIDIDO        reduce using rule 25 (expresion_numerica -> ID .)
-    PAREDER         reduce using rule 25 (expresion_numerica -> ID .)
-    CONCAT          reduce using rule 25 (expresion_numerica -> ID .)
-    PEKENUN         reduce using rule 25 (expresion_numerica -> ID .)
-    RAKIN           reduce using rule 25 (expresion_numerica -> ID .)
-    CHILLKA         reduce using rule 25 (expresion_numerica -> ID .)
-    ID              reduce using rule 25 (expresion_numerica -> ID .)
-    TUNTEPU         reduce using rule 25 (expresion_numerica -> ID .)
-    LI              reduce using rule 25 (expresion_numerica -> ID .)
-    $end            reduce using rule 25 (expresion_numerica -> ID .)
-    AFN             reduce using rule 25 (expresion_numerica -> ID .)
-    MAYOR           reduce using rule 25 (expresion_numerica -> ID .)
-    MENOR           reduce using rule 25 (expresion_numerica -> ID .)
-    IGUALQUE        reduce using rule 25 (expresion_numerica -> ID .)
-    DISTINTO        reduce using rule 25 (expresion_numerica -> ID .)
+    MAS             reduce using rule 31 (expresion_numerica -> ID .)
+    MENOS           reduce using rule 31 (expresion_numerica -> ID .)
+    POR             reduce using rule 31 (expresion_numerica -> ID .)
+    DIVIDIDO        reduce using rule 31 (expresion_numerica -> ID .)
+    KAY             reduce using rule 31 (expresion_numerica -> ID .)
+    KAM             reduce using rule 31 (expresion_numerica -> ID .)
+    NV              reduce using rule 31 (expresion_numerica -> ID .)
+    PAREDER         reduce using rule 31 (expresion_numerica -> ID .)
+    CONCAT          reduce using rule 31 (expresion_numerica -> ID .)
+    PEKENUN         reduce using rule 31 (expresion_numerica -> ID .)
+    RAKIN           reduce using rule 31 (expresion_numerica -> ID .)
+    CHILLKA         reduce using rule 31 (expresion_numerica -> ID .)
+    ID              reduce using rule 31 (expresion_numerica -> ID .)
+    TUNTEPU         reduce using rule 31 (expresion_numerica -> ID .)
+    LI              reduce using rule 31 (expresion_numerica -> ID .)
+    $end            reduce using rule 31 (expresion_numerica -> ID .)
+    AFN             reduce using rule 31 (expresion_numerica -> ID .)
+    MAYOR           reduce using rule 31 (expresion_numerica -> ID .)
+    MENOR           reduce using rule 31 (expresion_numerica -> ID .)
+    IGUALQUE        reduce using rule 31 (expresion_numerica -> ID .)
+    DISTINTO        reduce using rule 31 (expresion_numerica -> ID .)
 
 
 state 30
@@ -642,7 +693,10 @@ state 30
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
-    (28) expresion_cadena -> expresion_numerica .
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+    (34) expresion_cadena -> expresion_numerica .
 
   ! reduce/reduce conflict for PEKENUN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
   ! reduce/reduce conflict for RAKIN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
@@ -664,22 +718,25 @@ state 30
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
-    CONCAT          reduce using rule 28 (expresion_cadena -> expresion_numerica .)
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+    CONCAT          reduce using rule 34 (expresion_cadena -> expresion_numerica .)
 
-  ! PEKENUN         [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! RAKIN           [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! CHILLKA         [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! ID              [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! TUNTEPU         [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! LI              [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! $end            [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
-  ! AFN             [ reduce using rule 28 (expresion_cadena -> expresion_numerica .) ]
+  ! PEKENUN         [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! RAKIN           [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! CHILLKA         [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! ID              [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! TUNTEPU         [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! LI              [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! $end            [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
+  ! AFN             [ reduce using rule 34 (expresion_cadena -> expresion_numerica .) ]
 
 
 state 31
 
     (14) asignacion_instr -> ID ASIGNACION expresion_cadena .
-    (27) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+    (33) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
 
     PEKENUN         reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
     RAKIN           reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
@@ -696,28 +753,34 @@ state 32
 
     (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica . PAREDER LLITULUN instrucciones AFN
 
-    PAREDER         shift and go to state 42
+    PAREDER         shift and go to state 45
 
 
 state 33
 
-    (29) expresion_logica -> expresion_numerica . MAYOR expresion_numerica
-    (30) expresion_logica -> expresion_numerica . MENOR expresion_numerica
-    (31) expresion_logica -> expresion_numerica . IGUALQUE expresion_numerica
-    (32) expresion_logica -> expresion_numerica . DISTINTO expresion_numerica
+    (35) expresion_logica -> expresion_numerica . MAYOR expresion_numerica
+    (36) expresion_logica -> expresion_numerica . MENOR expresion_numerica
+    (37) expresion_logica -> expresion_numerica . IGUALQUE expresion_numerica
+    (38) expresion_logica -> expresion_numerica . DISTINTO expresion_numerica
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    MAYOR           shift and go to state 43
-    MENOR           shift and go to state 44
-    IGUALQUE        shift and go to state 45
-    DISTINTO        shift and go to state 46
+    MAYOR           shift and go to state 46
+    MENOR           shift and go to state 47
+    IGUALQUE        shift and go to state 48
+    DISTINTO        shift and go to state 49
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
 
 
 state 34
@@ -725,18 +788,27 @@ state 34
     (16) li_instr -> LI PAREIZQ expresion_logica . PAREDER LLITULUN instrucciones AFN
     (17) nvli_instr -> LI PAREIZQ expresion_logica . PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
 
-    PAREDER         shift and go to state 47
+    PAREDER         shift and go to state 50
 
 
 state 35
 
-    (22) expresion_numerica -> PAREIZQ expresion_numerica . PAREDER
+    (25) expresion_numerica -> PAREIZQ expresion_numerica . KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> PAREIZQ expresion_numerica . KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> PAREIZQ expresion_numerica . NV expresion_numerica PAREDER
+    (28) expresion_numerica -> PAREIZQ expresion_numerica . PAREDER
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    PAREDER         shift and go to state 48
+    KAY             shift and go to state 51
+    KAM             shift and go to state 53
+    NV              shift and go to state 54
+    PAREDER         shift and go to state 52
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
@@ -759,18 +831,24 @@ state 36
 
 state 37
 
-    (27) expresion_cadena -> expresion_cadena CONCAT . expresion_cadena
-    (26) expresion_cadena -> . CADENA
-    (27) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
-    (28) expresion_cadena -> . expresion_numerica
+    (33) expresion_cadena -> expresion_cadena CONCAT . expresion_cadena
+    (32) expresion_cadena -> . CADENA
+    (33) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (34) expresion_cadena -> . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     CADENA          shift and go to state 25
     PAREIZQ         shift and go to state 23
@@ -778,7 +856,7 @@ state 37
     DECIMAL         shift and go to state 28
     ID              shift and go to state 29
 
-    expresion_cadena               shift and go to state 49
+    expresion_cadena               shift and go to state 55
     expresion_numerica             shift and go to state 26
 
 state 38
@@ -788,112 +866,16 @@ state 38
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
-
-    PAREIZQ         shift and go to state 23
-    ENTERO          shift and go to state 27
-    DECIMAL         shift and go to state 28
-    ID              shift and go to state 29
-
-    expresion_numerica             shift and go to state 50
-
-state 39
-
-    (19) expresion_numerica -> expresion_numerica MENOS . expresion_numerica
-    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
-    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
-    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
-    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
-
-    PAREIZQ         shift and go to state 23
-    ENTERO          shift and go to state 27
-    DECIMAL         shift and go to state 28
-    ID              shift and go to state 29
-
-    expresion_numerica             shift and go to state 51
-
-state 40
-
-    (20) expresion_numerica -> expresion_numerica POR . expresion_numerica
-    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
-    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
-    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
-    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
-
-    PAREIZQ         shift and go to state 23
-    ENTERO          shift and go to state 27
-    DECIMAL         shift and go to state 28
-    ID              shift and go to state 29
-
-    expresion_numerica             shift and go to state 52
-
-state 41
-
-    (21) expresion_numerica -> expresion_numerica DIVIDIDO . expresion_numerica
-    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
-    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
-    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
-    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
-
-    PAREIZQ         shift and go to state 23
-    ENTERO          shift and go to state 27
-    DECIMAL         shift and go to state 28
-    ID              shift and go to state 29
-
-    expresion_numerica             shift and go to state 53
-
-state 42
-
-    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN
-
-    LLITULUN        shift and go to state 54
-
-
-state 43
-
-    (29) expresion_logica -> expresion_numerica MAYOR . expresion_numerica
-    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
-    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
-    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
-    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
-
-    PAREIZQ         shift and go to state 23
-    ENTERO          shift and go to state 27
-    DECIMAL         shift and go to state 28
-    ID              shift and go to state 29
-
-    expresion_numerica             shift and go to state 55
-
-state 44
-
-    (30) expresion_logica -> expresion_numerica MENOR . expresion_numerica
-    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
-    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
-    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
-    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -902,17 +884,23 @@ state 44
 
     expresion_numerica             shift and go to state 56
 
-state 45
+state 39
 
-    (31) expresion_logica -> expresion_numerica IGUALQUE . expresion_numerica
+    (19) expresion_numerica -> expresion_numerica MENOS . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -921,17 +909,23 @@ state 45
 
     expresion_numerica             shift and go to state 57
 
-state 46
+state 40
 
-    (32) expresion_logica -> expresion_numerica DISTINTO . expresion_numerica
+    (20) expresion_numerica -> expresion_numerica POR . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
-    (22) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (23) expresion_numerica -> . ENTERO
-    (24) expresion_numerica -> . DECIMAL
-    (25) expresion_numerica -> . ID
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -940,68 +934,362 @@ state 46
 
     expresion_numerica             shift and go to state 58
 
+state 41
+
+    (21) expresion_numerica -> expresion_numerica DIVIDIDO . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 59
+
+state 42
+
+    (22) expresion_numerica -> expresion_numerica KAY . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 60
+
+state 43
+
+    (23) expresion_numerica -> expresion_numerica KAM . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 61
+
+state 44
+
+    (24) expresion_numerica -> expresion_numerica NV . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 62
+
+state 45
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN
+
+    LLITULUN        shift and go to state 63
+
+
+state 46
+
+    (35) expresion_logica -> expresion_numerica MAYOR . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 64
+
 state 47
+
+    (36) expresion_logica -> expresion_numerica MENOR . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 65
+
+state 48
+
+    (37) expresion_logica -> expresion_numerica IGUALQUE . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 66
+
+state 49
+
+    (38) expresion_logica -> expresion_numerica DISTINTO . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 67
+
+state 50
 
     (16) li_instr -> LI PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
 
-    LLITULUN        shift and go to state 59
+    LLITULUN        shift and go to state 68
 
 
-state 48
+state 51
 
-    (22) expresion_numerica -> PAREIZQ expresion_numerica PAREDER .
+    (25) expresion_numerica -> PAREIZQ expresion_numerica KAY . expresion_numerica PAREDER
+    (22) expresion_numerica -> expresion_numerica KAY . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
 
-    MAS             reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    MENOS           reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    POR             reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    DIVIDIDO        reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    PAREDER         reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    CONCAT          reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    PEKENUN         reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    RAKIN           reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    CHILLKA         reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    ID              reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    TUNTEPU         reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    LI              reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    $end            reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    AFN             reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    MAYOR           reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    MENOR           reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    IGUALQUE        reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    DISTINTO        reduce using rule 22 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 69
+
+state 52
+
+    (28) expresion_numerica -> PAREIZQ expresion_numerica PAREDER .
+
+    MAS             reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MENOS           reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    POR             reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    DIVIDIDO        reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    KAY             reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    KAM             reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    NV              reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PAREDER         reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    CONCAT          reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PEKENUN         reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    RAKIN           reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    CHILLKA         reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    ID              reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    TUNTEPU         reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    LI              reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    $end            reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    AFN             reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MAYOR           reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MENOR           reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    IGUALQUE        reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    DISTINTO        reduce using rule 28 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
 
 
-state 49
+state 53
 
-    (27) expresion_cadena -> expresion_cadena CONCAT expresion_cadena .
-    (27) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+    (26) expresion_numerica -> PAREIZQ expresion_numerica KAM . expresion_numerica PAREDER
+    (23) expresion_numerica -> expresion_numerica KAM . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 70
+
+state 54
+
+    (27) expresion_numerica -> PAREIZQ expresion_numerica NV . expresion_numerica PAREDER
+    (24) expresion_numerica -> expresion_numerica NV . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica KAY expresion_numerica
+    (23) expresion_numerica -> . expresion_numerica KAM expresion_numerica
+    (24) expresion_numerica -> . expresion_numerica NV expresion_numerica
+    (25) expresion_numerica -> . PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+    (26) expresion_numerica -> . PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+    (27) expresion_numerica -> . PAREIZQ expresion_numerica NV expresion_numerica PAREDER
+    (28) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (29) expresion_numerica -> . ENTERO
+    (30) expresion_numerica -> . DECIMAL
+    (31) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 71
+
+state 55
+
+    (33) expresion_cadena -> expresion_cadena CONCAT expresion_cadena .
+    (33) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
 
   ! shift/reduce conflict for CONCAT resolved as shift
-    PAREDER         reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    PEKENUN         reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    RAKIN           reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    CHILLKA         reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    ID              reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    TUNTEPU         reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    LI              reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    $end            reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    AFN             reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    PAREDER         reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    PEKENUN         reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    RAKIN           reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    CHILLKA         reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    ID              reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    TUNTEPU         reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    LI              reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    $end            reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    AFN             reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
     CONCAT          shift and go to state 37
 
-  ! CONCAT          [ reduce using rule 27 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .) ]
+  ! CONCAT          [ reduce using rule 33 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .) ]
 
 
-state 50
+state 56
 
     (18) expresion_numerica -> expresion_numerica MAS expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
     MAS             reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
     MENOS           reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    KAY             reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    KAM             reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    NV              reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
     PAREDER         reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
     CONCAT          reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
     PEKENUN         reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
@@ -1023,18 +1311,27 @@ state 50
   ! DIVIDIDO        [ reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .) ]
   ! MAS             [ shift and go to state 38 ]
   ! MENOS           [ shift and go to state 39 ]
+  ! KAY             [ shift and go to state 42 ]
+  ! KAM             [ shift and go to state 43 ]
+  ! NV              [ shift and go to state 44 ]
 
 
-state 51
+state 57
 
     (19) expresion_numerica -> expresion_numerica MENOS expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
     MAS             reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
     MENOS           reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    KAY             reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    KAM             reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    NV              reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
     PAREDER         reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
     CONCAT          reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
     PEKENUN         reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
@@ -1056,20 +1353,29 @@ state 51
   ! DIVIDIDO        [ reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .) ]
   ! MAS             [ shift and go to state 38 ]
   ! MENOS           [ shift and go to state 39 ]
+  ! KAY             [ shift and go to state 42 ]
+  ! KAM             [ shift and go to state 43 ]
+  ! NV              [ shift and go to state 44 ]
 
 
-state 52
+state 58
 
     (20) expresion_numerica -> expresion_numerica POR expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
     MAS             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
     MENOS           reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
     POR             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
     DIVIDIDO        reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    KAY             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    KAM             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    NV              reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
     PAREDER         reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
     CONCAT          reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
     PEKENUN         reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
@@ -1089,20 +1395,29 @@ state 52
   ! MENOS           [ shift and go to state 39 ]
   ! POR             [ shift and go to state 40 ]
   ! DIVIDIDO        [ shift and go to state 41 ]
+  ! KAY             [ shift and go to state 42 ]
+  ! KAM             [ shift and go to state 43 ]
+  ! NV              [ shift and go to state 44 ]
 
 
-state 53
+state 59
 
     (21) expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
     MAS             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
     MENOS           reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
     POR             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
     DIVIDIDO        reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    KAY             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    KAM             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    NV              reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
     PAREDER         reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
     CONCAT          reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
     PEKENUN         reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
@@ -1122,9 +1437,159 @@ state 53
   ! MENOS           [ shift and go to state 39 ]
   ! POR             [ shift and go to state 40 ]
   ! DIVIDIDO        [ shift and go to state 41 ]
+  ! KAY             [ shift and go to state 42 ]
+  ! KAM             [ shift and go to state 43 ]
+  ! NV              [ shift and go to state 44 ]
 
 
-state 54
+state 60
+
+    (22) expresion_numerica -> expresion_numerica KAY expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+  ! shift/reduce conflict for POR resolved as shift
+  ! shift/reduce conflict for DIVIDIDO resolved as shift
+  ! shift/reduce conflict for KAY resolved as shift
+  ! shift/reduce conflict for KAM resolved as shift
+  ! shift/reduce conflict for NV resolved as shift
+    PAREDER         reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    CONCAT          reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    PEKENUN         reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    RAKIN           reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    CHILLKA         reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    ID              reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    TUNTEPU         reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    LI              reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    $end            reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    AFN             reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    MAYOR           reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    MENOR           reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    IGUALQUE        reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    DISTINTO        reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+
+  ! MAS             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! MENOS           [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! POR             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! KAY             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! KAM             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! NV              [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+
+
+state 61
+
+    (23) expresion_numerica -> expresion_numerica KAM expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+  ! shift/reduce conflict for POR resolved as shift
+  ! shift/reduce conflict for DIVIDIDO resolved as shift
+  ! shift/reduce conflict for KAY resolved as shift
+  ! shift/reduce conflict for KAM resolved as shift
+  ! shift/reduce conflict for NV resolved as shift
+    PAREDER         reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    CONCAT          reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    PEKENUN         reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    RAKIN           reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    CHILLKA         reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    ID              reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    TUNTEPU         reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    LI              reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    $end            reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    AFN             reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    MAYOR           reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    MENOR           reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    IGUALQUE        reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    DISTINTO        reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+
+  ! MAS             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! MENOS           [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! POR             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! KAY             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! KAM             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! NV              [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+
+
+state 62
+
+    (24) expresion_numerica -> expresion_numerica NV expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+  ! shift/reduce conflict for POR resolved as shift
+  ! shift/reduce conflict for DIVIDIDO resolved as shift
+  ! shift/reduce conflict for KAY resolved as shift
+  ! shift/reduce conflict for KAM resolved as shift
+  ! shift/reduce conflict for NV resolved as shift
+    PAREDER         reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    CONCAT          reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    PEKENUN         reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    RAKIN           reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    CHILLKA         reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    ID              reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    TUNTEPU         reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    LI              reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    $end            reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    AFN             reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    MAYOR           reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    MENOR           reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    IGUALQUE        reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    DISTINTO        reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+
+  ! MAS             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! MENOS           [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! POR             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! KAY             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! KAM             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! NV              [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+
+
+state 63
 
     (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN . instrucciones AFN
     (2) instrucciones -> . instrucciones instruccion
@@ -1151,7 +1616,7 @@ state 54
     TUNTEPU         shift and go to state 14
     LI              shift and go to state 15
 
-    instrucciones                  shift and go to state 60
+    instrucciones                  shift and go to state 72
     instruccion                    shift and go to state 3
     pekenun_instr                  shift and go to state 4
     definicion_instr               shift and go to state 5
@@ -1160,67 +1625,91 @@ state 54
     li_instr                       shift and go to state 8
     nvli_instr                     shift and go to state 9
 
-state 55
+state 64
 
-    (29) expresion_logica -> expresion_numerica MAYOR expresion_numerica .
+    (35) expresion_logica -> expresion_numerica MAYOR expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    PAREDER         reduce using rule 29 (expresion_logica -> expresion_numerica MAYOR expresion_numerica .)
+    PAREDER         reduce using rule 35 (expresion_logica -> expresion_numerica MAYOR expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
 
 
-state 56
+state 65
 
-    (30) expresion_logica -> expresion_numerica MENOR expresion_numerica .
+    (36) expresion_logica -> expresion_numerica MENOR expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    PAREDER         reduce using rule 30 (expresion_logica -> expresion_numerica MENOR expresion_numerica .)
+    PAREDER         reduce using rule 36 (expresion_logica -> expresion_numerica MENOR expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
 
 
-state 57
+state 66
 
-    (31) expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .
+    (37) expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    PAREDER         reduce using rule 31 (expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .)
+    PAREDER         reduce using rule 37 (expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
 
 
-state 58
+state 67
 
-    (32) expresion_logica -> expresion_numerica DISTINTO expresion_numerica .
+    (38) expresion_logica -> expresion_numerica DISTINTO expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
 
-    PAREDER         reduce using rule 32 (expresion_logica -> expresion_numerica DISTINTO expresion_numerica .)
+    PAREDER         reduce using rule 38 (expresion_logica -> expresion_numerica DISTINTO expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
 
 
-state 59
+state 68
 
     (16) li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN . instrucciones AFN
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN . instrucciones AFN NVLI LLITULUN instrucciones AFN
@@ -1248,7 +1737,7 @@ state 59
     TUNTEPU         shift and go to state 14
     LI              shift and go to state 15
 
-    instrucciones                  shift and go to state 61
+    instrucciones                  shift and go to state 73
     instruccion                    shift and go to state 3
     pekenun_instr                  shift and go to state 4
     definicion_instr               shift and go to state 5
@@ -1257,7 +1746,124 @@ state 59
     li_instr                       shift and go to state 8
     nvli_instr                     shift and go to state 9
 
-state 60
+state 69
+
+    (25) expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica . PAREDER
+    (22) expresion_numerica -> expresion_numerica KAY expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+
+  ! shift/reduce conflict for PAREDER resolved as shift
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+  ! shift/reduce conflict for POR resolved as shift
+  ! shift/reduce conflict for DIVIDIDO resolved as shift
+  ! shift/reduce conflict for KAY resolved as shift
+  ! shift/reduce conflict for KAM resolved as shift
+  ! shift/reduce conflict for NV resolved as shift
+    PAREDER         shift and go to state 74
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+
+  ! KAY             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! KAM             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! NV              [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! PAREDER         [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! MAS             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! MENOS           [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! POR             [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 22 (expresion_numerica -> expresion_numerica KAY expresion_numerica .) ]
+
+
+state 70
+
+    (26) expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica . PAREDER
+    (23) expresion_numerica -> expresion_numerica KAM expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+
+  ! shift/reduce conflict for PAREDER resolved as shift
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+  ! shift/reduce conflict for POR resolved as shift
+  ! shift/reduce conflict for DIVIDIDO resolved as shift
+  ! shift/reduce conflict for KAY resolved as shift
+  ! shift/reduce conflict for KAM resolved as shift
+  ! shift/reduce conflict for NV resolved as shift
+    PAREDER         shift and go to state 75
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+
+  ! KAY             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! KAM             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! NV              [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! PAREDER         [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! MAS             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! MENOS           [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! POR             [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 23 (expresion_numerica -> expresion_numerica KAM expresion_numerica .) ]
+
+
+state 71
+
+    (27) expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica . PAREDER
+    (24) expresion_numerica -> expresion_numerica NV expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . KAY expresion_numerica
+    (23) expresion_numerica -> expresion_numerica . KAM expresion_numerica
+    (24) expresion_numerica -> expresion_numerica . NV expresion_numerica
+
+  ! shift/reduce conflict for PAREDER resolved as shift
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+  ! shift/reduce conflict for POR resolved as shift
+  ! shift/reduce conflict for DIVIDIDO resolved as shift
+  ! shift/reduce conflict for KAY resolved as shift
+  ! shift/reduce conflict for KAM resolved as shift
+  ! shift/reduce conflict for NV resolved as shift
+    PAREDER         shift and go to state 76
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    KAY             shift and go to state 42
+    KAM             shift and go to state 43
+    NV              shift and go to state 44
+
+  ! KAY             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! KAM             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! NV              [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! PAREDER         [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! MAS             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! MENOS           [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! POR             [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 24 (expresion_numerica -> expresion_numerica NV expresion_numerica .) ]
+
+
+state 72
 
     (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones . AFN
     (2) instrucciones -> instrucciones . instruccion
@@ -1276,7 +1882,7 @@ state 60
     (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
     (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
 
-    AFN             shift and go to state 62
+    AFN             shift and go to state 77
     PEKENUN         shift and go to state 10
     RAKIN           shift and go to state 11
     CHILLKA         shift and go to state 13
@@ -1292,7 +1898,7 @@ state 60
     li_instr                       shift and go to state 8
     nvli_instr                     shift and go to state 9
 
-state 61
+state 73
 
     (16) li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones . AFN
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones . AFN NVLI LLITULUN instrucciones AFN
@@ -1312,7 +1918,7 @@ state 61
     (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
     (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
 
-    AFN             shift and go to state 63
+    AFN             shift and go to state 78
     PEKENUN         shift and go to state 10
     RAKIN           shift and go to state 11
     CHILLKA         shift and go to state 13
@@ -1328,7 +1934,88 @@ state 61
     li_instr                       shift and go to state 8
     nvli_instr                     shift and go to state 9
 
-state 62
+state 74
+
+    (25) expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .
+
+    MAS             reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    MENOS           reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    POR             reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    DIVIDIDO        reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    KAY             reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    KAM             reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    NV              reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    PAREDER         reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    CONCAT          reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    PEKENUN         reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    RAKIN           reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    CHILLKA         reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    ID              reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    TUNTEPU         reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    LI              reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    $end            reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    AFN             reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    MAYOR           reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    MENOR           reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    IGUALQUE        reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+    DISTINTO        reduce using rule 25 (expresion_numerica -> PAREIZQ expresion_numerica KAY expresion_numerica PAREDER .)
+
+
+state 75
+
+    (26) expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .
+
+    MAS             reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    MENOS           reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    POR             reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    DIVIDIDO        reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    KAY             reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    KAM             reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    NV              reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    PAREDER         reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    CONCAT          reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    PEKENUN         reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    RAKIN           reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    CHILLKA         reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    ID              reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    TUNTEPU         reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    LI              reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    $end            reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    AFN             reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    MAYOR           reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    MENOR           reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    IGUALQUE        reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+    DISTINTO        reduce using rule 26 (expresion_numerica -> PAREIZQ expresion_numerica KAM expresion_numerica PAREDER .)
+
+
+state 76
+
+    (27) expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .
+
+    MAS             reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    MENOS           reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    POR             reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    DIVIDIDO        reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    KAY             reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    KAM             reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    NV              reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    PAREDER         reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    CONCAT          reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    PEKENUN         reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    RAKIN           reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    CHILLKA         reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    ID              reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    TUNTEPU         reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    LI              reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    $end            reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    AFN             reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    MAYOR           reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    MENOR           reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    IGUALQUE        reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+    DISTINTO        reduce using rule 27 (expresion_numerica -> PAREIZQ expresion_numerica NV expresion_numerica PAREDER .)
+
+
+state 77
 
     (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .
 
@@ -1342,7 +2029,7 @@ state 62
     AFN             reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
 
 
-state 63
+state 78
 
     (16) li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN . NVLI LLITULUN instrucciones AFN
@@ -1355,17 +2042,17 @@ state 63
     LI              reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
     $end            reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
     AFN             reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
-    NVLI            shift and go to state 64
+    NVLI            shift and go to state 79
 
 
-state 64
+state 79
 
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI . LLITULUN instrucciones AFN
 
-    LLITULUN        shift and go to state 65
+    LLITULUN        shift and go to state 80
 
 
-state 65
+state 80
 
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN . instrucciones AFN
     (2) instrucciones -> . instrucciones instruccion
@@ -1392,7 +2079,7 @@ state 65
     TUNTEPU         shift and go to state 14
     LI              shift and go to state 15
 
-    instrucciones                  shift and go to state 66
+    instrucciones                  shift and go to state 81
     instruccion                    shift and go to state 3
     pekenun_instr                  shift and go to state 4
     definicion_instr               shift and go to state 5
@@ -1401,7 +2088,7 @@ state 65
     li_instr                       shift and go to state 8
     nvli_instr                     shift and go to state 9
 
-state 66
+state 81
 
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones . AFN
     (2) instrucciones -> instrucciones . instruccion
@@ -1420,7 +2107,7 @@ state 66
     (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
     (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
 
-    AFN             shift and go to state 67
+    AFN             shift and go to state 82
     PEKENUN         shift and go to state 10
     RAKIN           shift and go to state 11
     CHILLKA         shift and go to state 13
@@ -1436,7 +2123,7 @@ state 66
     li_instr                       shift and go to state 8
     nvli_instr                     shift and go to state 9
 
-state 67
+state 82
 
     (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .
 
@@ -1452,6 +2139,51 @@ state 67
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: shift/reduce conflict for CONCAT in state 49 resolved as shift
+WARNING: shift/reduce conflict for CONCAT in state 55 resolved as shift
+WARNING: shift/reduce conflict for MAS in state 60 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 60 resolved as shift
+WARNING: shift/reduce conflict for POR in state 60 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIDO in state 60 resolved as shift
+WARNING: shift/reduce conflict for KAY in state 60 resolved as shift
+WARNING: shift/reduce conflict for KAM in state 60 resolved as shift
+WARNING: shift/reduce conflict for NV in state 60 resolved as shift
+WARNING: shift/reduce conflict for MAS in state 61 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 61 resolved as shift
+WARNING: shift/reduce conflict for POR in state 61 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIDO in state 61 resolved as shift
+WARNING: shift/reduce conflict for KAY in state 61 resolved as shift
+WARNING: shift/reduce conflict for KAM in state 61 resolved as shift
+WARNING: shift/reduce conflict for NV in state 61 resolved as shift
+WARNING: shift/reduce conflict for MAS in state 62 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 62 resolved as shift
+WARNING: shift/reduce conflict for POR in state 62 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIDO in state 62 resolved as shift
+WARNING: shift/reduce conflict for KAY in state 62 resolved as shift
+WARNING: shift/reduce conflict for KAM in state 62 resolved as shift
+WARNING: shift/reduce conflict for NV in state 62 resolved as shift
+WARNING: shift/reduce conflict for PAREDER in state 69 resolved as shift
+WARNING: shift/reduce conflict for MAS in state 69 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 69 resolved as shift
+WARNING: shift/reduce conflict for POR in state 69 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIDO in state 69 resolved as shift
+WARNING: shift/reduce conflict for KAY in state 69 resolved as shift
+WARNING: shift/reduce conflict for KAM in state 69 resolved as shift
+WARNING: shift/reduce conflict for NV in state 69 resolved as shift
+WARNING: shift/reduce conflict for PAREDER in state 70 resolved as shift
+WARNING: shift/reduce conflict for MAS in state 70 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 70 resolved as shift
+WARNING: shift/reduce conflict for POR in state 70 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIDO in state 70 resolved as shift
+WARNING: shift/reduce conflict for KAY in state 70 resolved as shift
+WARNING: shift/reduce conflict for KAM in state 70 resolved as shift
+WARNING: shift/reduce conflict for NV in state 70 resolved as shift
+WARNING: shift/reduce conflict for PAREDER in state 71 resolved as shift
+WARNING: shift/reduce conflict for MAS in state 71 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 71 resolved as shift
+WARNING: shift/reduce conflict for POR in state 71 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIDO in state 71 resolved as shift
+WARNING: shift/reduce conflict for KAY in state 71 resolved as shift
+WARNING: shift/reduce conflict for KAM in state 71 resolved as shift
+WARNING: shift/reduce conflict for NV in state 71 resolved as shift
 WARNING: reduce/reduce conflict in state 30 resolved using rule (asignacion_instr -> ID ASIGNACION expresion_numerica)
 WARNING: rejected rule (expresion_cadena -> expresion_numerica) in state 30

@@ -23,3 +23,5 @@ chillka y
 x = 3
 y ="hola"
 pekenun(x&y&" chao"&6+5)
+
+(5 > 1) kam (2 > 0)

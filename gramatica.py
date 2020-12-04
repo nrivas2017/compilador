@@ -247,6 +247,21 @@ def p_expresion_binaria(t):
     elif t[2] == '*': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.POR)
     elif t[2] == '/': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.DIVIDIDO)
 
+# gramatica de expresiones booleanadas
+def p_expresion_booleana(t):
+    '''expresion_numerica : expresion_numerica KAY expresion_numerica 
+                        | expresion_numerica KAM expresion_numerica 
+                        | expresion_numerica NV expresion_numerica 
+                        | PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
+                        | PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
+                        | PAREIZQ expresion_numerica NV expresion_numerica PAREDER'''
+    if t[2] == "kay": t[0] = ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.KAY)
+    elif t[2] == "kam": t[0] = ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.KAM)
+    elif t[2] == "nv": t[0] =  ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.NV)
+    elif t[3] == "kay": t[0] = ExpresionBooleana(t[2], t[4], OPERACION_BOOLEANA.KAY)
+    elif t[3] == "kam": t[0] = ExpresionBooleana(t[2], t[4], OPERACION_BOOLEANA.KAM)
+    elif t[3] == "nv": t[0] =  ExpresionBooleana(t[2], t[4], OPERACION_BOOLEANA.NV)
+
 def p_expresion_agrupacion(t):
     'expresion_numerica : PAREIZQ expresion_numerica PAREDER'
     t[0] = t[2]
