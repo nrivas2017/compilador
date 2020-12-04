@@ -5,17 +5,18 @@ class OPERACION_ARITMETICA(Enum) :
     MENOS = 2
     POR = 3
     DIVIDIDO = 4
+    POTENCIA = 5
 
 class OPERACION_LOGICA(Enum) :
     MAYOR = 1
     MENOR = 2
     IGUAL = 3
     DISTINTO = 4
-    
+
 class OPERACION_BOOLEANA(Enum) :
-    KAY = 5
-    KAM = 6
-    NV = 7
+    KAY = 1
+    KAM = 2
+    NV = 3
 
 class ExpresionNumerica:
     '''

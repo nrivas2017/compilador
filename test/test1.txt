@@ -19,9 +19,12 @@ pekenun (a)
 
 
 rakin x
+rakin e
 chillka y
 x = 3
+e = 3
 y ="hola"
-pekenun(x&y&" chao"&6+5)
+pekenun(x^e)
 
-(5 > 1) kam (2 > 0)
+
+2>1 kay 1>1

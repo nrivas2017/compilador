@@ -13,30 +13,18 @@ reservadas = {
     'llitulun' : 'LLITULUN', 
     'afn' : 'AFN',
     'kay' : 'KAY', 
-    'namemn' : 'NAMEMN', 
     'pvle' : 'PVLE', 
     'nguen' : 'NGUEN',
-    'kenun' : 'KENUN', 
-    'yafungueltun' : 'YAFUNGUELTUN', 
-    'mew' : 'MEW', 
     'weltekun' : 'WELTEKUN', 
     'nvli' :  'NVLI' ,
-    'watron' : 'WATRON',
-    'kom' :  'KOM', 
     'nv' : 'NV', 
     'li' : 'LI', 
     'kam' : 'KAM', 
-    'tuntepu' : 'TUNTEPU', 
-    'petuln' : 'PETULN', 
-    'deuman' : 'DEUMAN', 
-    'shunul' : 'SHUNUL', 
-    'non' : 'NON', 
-    'konme' : 'KONME',
+    'tuntepu' : 'TUNTEPU',
     'kudaw' : 'KUDAW', 
     'ponwi' : 'PONWI', 
     'pekenun' : 'PEKENUN', 
     'inche' : 'INCHE', 
-    'chumnone' : 'CHUMNONE',
     'rakin' : 'RAKIN',
     'chillka':'CHILLKA'
 }
@@ -241,20 +229,22 @@ def p_expresion_binaria(t):
     '''expresion_numerica : expresion_numerica MAS expresion_numerica
                         | expresion_numerica MENOS expresion_numerica
                         | expresion_numerica POR expresion_numerica
-                        | expresion_numerica DIVIDIDO expresion_numerica'''
+                        | expresion_numerica DIVIDIDO expresion_numerica
+                        | expresion_numerica POTENCIA expresion_numerica'''
     if t[2] == '+'  : t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.MAS)
     elif t[2] == '-': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.MENOS)
     elif t[2] == '*': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.POR)
     elif t[2] == '/': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.DIVIDIDO)
+    elif t[2] == '^': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.POTENCIA)
 
 # gramatica de expresiones booleanadas
 def p_expresion_booleana(t):
-    '''expresion_numerica : expresion_numerica KAY expresion_numerica 
-                        | expresion_numerica KAM expresion_numerica 
-                        | expresion_numerica NV expresion_numerica 
-                        | PAREIZQ expresion_numerica KAY expresion_numerica PAREDER
-                        | PAREIZQ expresion_numerica KAM expresion_numerica PAREDER
-                        | PAREIZQ expresion_numerica NV expresion_numerica PAREDER'''
+    '''expresion_booleana : expresion_logica KAY expresion_logica 
+                        | expresion_logica KAM expresion_logica 
+                        | expresion_logica NV expresion_logica 
+                        | PAREIZQ expresion_logica KAY expresion_logica PAREDER
+                        | PAREIZQ expresion_logica KAM expresion_logica PAREDER
+                        | PAREIZQ expresion_logica NV expresion_logica PAREDER'''
     if t[2] == "kay": t[0] = ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.KAY)
     elif t[2] == "kam": t[0] = ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.KAM)
     elif t[2] == "nv": t[0] =  ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.NV)
