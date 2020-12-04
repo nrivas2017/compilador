@@ -31,82 +31,56 @@ t_CORDER = r'\]'
 t_POTENCIA = r'\^'
 
 def t_ID(t):
-  r'[a-zA-Z_][a-zA-Z0-9_]*'
-  if t.value.upper() in reservadas:
-    t.value = t.value.upper()
-    t.type = t.value
-    
-  return t
+    r'[a-zA-Z_][a-zA-Z0-9_]*'
+    if t.value.upper() in reservadas:
+        t.value = t.value.upper()
+        t.type = t.value
+        
+    return t
 
 def t_DECIMAL(t):
-	r'\d+\.\d+'
-  try:
-      t.value = float(t.value)
-  except ValueError:
-      print("Float value too large %d", t.value)
-      t.value = 0
-  return t
+    r'\d+\.\d+'
+    try:
+        t.value = float(t.value)
+    except ValueError:
+        print("Float value too large %d", t.value)
+        t.value = 0
+    return t
 
 def t_ENTERO(t):
-  r'\d+'
-  try:
-      t.value = int(t.value)
-  except ValueError:
-      print("Integer value too large %d", t.value)
-      t.value = 0
-  return t
+    r'\d+'
+    try:
+        t.value = int(t.value)
+    except ValueError:
+        print("Integer value too large %d", t.value)
+        t.value = 0
+    return t
 
 def t_newline(t):
-  r'\n+'
-  t.lexer.lineno += t.value.count("\n")
+    r'\n+'
+    t.lexer.lineno += t.value.count("\n")
   
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
     
 def t_COMENTARIO(t):
-  r'\@.*'
-  pass
+    r'\@.*'
+    pass
 
-def buscarArchivo(directorio):
-  archivos = []
-  numArchivo = ''
-  respuesta = False
-  cont = 1
-  
-  for base, dirs, files in os.walk(directorio)
-		archivos.append(files)
-    
-  for file in files:
-    print str(cont)+". "+file
-    cont = cont + 1
-    
-    
-  while respuesta == False:
-    numArchivo = input('\nNumero del test: ')
-    for file in files:
-      if file == files[int(numArchivo)-1]:
-        respuestas = True
-        break
-  print "Has escogido \"%s\" \n" %files[int(numArchivo)-1]
-  
-  return files[int(numArchivo)-1]
+analizador = lex.lex()
 
-lexer = lex.lex()
-
-directorio ='test'
-archivo = buscarArchivo(directorio)
-test = directorio+archivo
+test = 'test/test1.txt'
 fp = codecs.open(test, "r", "utf-8")
 cadena = fp.read()
 fp.close()
 
-laxer.input(cadena)
+analizador.input(cadena)
 
 while True:
-  tok = analizador.token()
-  if not tok : break
-  print tok
+    tok = analizador.token()
+    if not tok : break
+    print (tok)
 
 
 #begin = llitulun
