@@ -51,15 +51,15 @@ class li(Instruccion) :
         self.expLogica = expLogica
         self.instrucciones = instrucciones
 
-class IfElse(Instruccion) : 
+class nvli(Instruccion) : 
     '''
         Esta clase representa la instrucción if-else.
-        La instrucción if-else recibe como parámetro una expresión lógica y la lista
+        La instrucción nvli recibe como parámetro una expresión lógica y la lista
         de instrucciones a ejecutar si la expresión lógica es verdadera y otro lista de instrucciones
         a ejecutar si la expresión lógica es falsa.
     '''
 
-    def __init__(self, expLogica, instrIfVerdadero = [], instrIfFalso = []) :
+    def __init__(self, expLogica, instrliVerdadero = [], instrliFalso = []) :
         self.expLogica = expLogica
-        self.instrIfVerdadero = instrIfVerdadero
-        self.instrIfFalso = instrIfFalso
+        self.instrliVerdadero = instrliVerdadero
+        self.instrliFalso = instrliFalso

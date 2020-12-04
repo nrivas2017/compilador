@@ -15,25 +15,25 @@ def procesar_asignacion(instr, ts) :
     simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, val)
     ts.actualizar(simbolo)
 
-def procesar_mientras(instr, ts) :
+def procesar_tuntepu(instr, ts) :
     while resolver_expreision_logica(instr.expLogica, ts) :
         ts_local = TS.TablaDeSimbolos(ts.simbolos)
         procesar_instrucciones(instr.instrucciones, ts_local)
 
-def procesar_if(instr, ts) :
+def procesar_li(instr, ts) :
     val = resolver_expreision_logica(instr.expLogica, ts)
     if val :
         ts_local = TS.TablaDeSimbolos(ts.simbolos)
         procesar_instrucciones(instr.instrucciones, ts_local)
 
-def procesar_if_else(instr, ts) :
+def procesar_nvli(instr, ts) :
     val = resolver_expreision_logica(instr.expLogica, ts)
     if val :
         ts_local = TS.TablaDeSimbolos(ts.simbolos)
-        procesar_instrucciones(instr.instrIfVerdadero, ts_local)
+        procesar_instrucciones(instr.instrliVerdadero, ts_local)
     else :
         ts_local = TS.TablaDeSimbolos(ts.simbolos)
-        procesar_instrucciones(instr.instrIfFalso, ts_local)
+        procesar_instrucciones(instr.instrliFalso, ts_local)
 
 def resolver_cadena(expCad, ts) :
     if isinstance(expCad, ExpresionConcatenar) :
@@ -79,9 +79,9 @@ def procesar_instrucciones(instrucciones, ts) :
         if isinstance(instr, pekenun) : procesar_imprimir(instr, ts)
         elif isinstance(instr, Definicion) : procesar_definicion(instr, ts)
         elif isinstance(instr, Asignacion) : procesar_asignacion(instr, ts)
-        elif isinstance(instr, tuntepu) : procesar_mientras(instr, ts)
-        elif isinstance(instr, li) : procesar_if(instr, ts)
-        elif isinstance(instr, IfElse) : procesar_if_else(instr, ts)
+        elif isinstance(instr, tuntepu) : procesar_tuntepu(instr, ts)
+        elif isinstance(instr, li) : procesar_li(instr, ts)
+        elif isinstance(instr, nvli) : procesar_nvli(instr, ts)
         else : print('Error: instrucción no válida')
 
 

@@ -40,7 +40,8 @@ reservadas = {
     'pekenun' : 'PEKENUN', 
     'inche' : 'INCHE', 
     'chumnone' : 'CHUMNONE',
-    'rakin' : 'RAKIN'
+    'rakin' : 'RAKIN',
+    'chillka':'CHILLKA'
 }
 
 
@@ -211,7 +212,7 @@ def p_instruccion(t) :
                         | asignacion_instr
                         | tuntepu_instr
                         | li_instr
-                        | if_else_instr'''
+                        | nvli_instr'''
     t[0] = t[1]
 
 def p_instruccion_pekenun(t) :
@@ -230,9 +231,9 @@ def p_li_instr(t) :
     'li_instr           : LI PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER'
     t[0] =li(t[3], t[6])
 
-def p_if_else_instr(t) :
-    'if_else_instr      : LI PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER NVLI LLAVIZQ instrucciones LLAVDER'
-    t[0] =IfElse(t[3], t[6], t[10])
+def p_nvli_instr(t) :
+    'nvli_instr      : LI PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER NVLI LLAVIZQ instrucciones LLAVDER'
+    t[0] =nvli(t[3], t[6], t[10])
 
 def p_expresion_binaria(t):
     '''expresion_numerica : expresion_numerica MAS expresion_numerica

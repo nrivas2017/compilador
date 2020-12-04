@@ -1,4 +1,14 @@
 rakin a
 a = 3
 
+tuntepu(a>2){
+    pekenun (a)
+    a=a-1 
+}
+li (a==1){
+    pekenun ("a es igual a 1")
+}nvli{
+    pekenun("a no es igual a 1")
+}
 pekenun (a)
+
