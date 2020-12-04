@@ -12,19 +12,13 @@ reservadas=[]
 reservadas = {
     'llitulun' : 'LLITULUN', 
     'afn' : 'AFN',
-    'kay' : 'KAY', 
     'pvle' : 'PVLE', 
-    'nguen' : 'NGUEN',
-    'weltekun' : 'WELTEKUN', 
     'nvli' :  'NVLI' ,
     'nv' : 'NV', 
     'li' : 'LI', 
-    'kam' : 'KAM', 
     'tuntepu' : 'TUNTEPU',
-    'kudaw' : 'KUDAW', 
     'ponwi' : 'PONWI', 
     'pekenun' : 'PEKENUN', 
-    'inche' : 'INCHE', 
     'rakin' : 'RAKIN',
     'chillka':'CHILLKA'
 }
@@ -236,21 +230,6 @@ def p_expresion_binaria(t):
     elif t[2] == '*': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.POR)
     elif t[2] == '/': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.DIVIDIDO)
     elif t[2] == '^': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.POTENCIA)
-
-# gramatica de expresiones booleanadas
-def p_expresion_booleana(t):
-    '''expresion_booleana : expresion_logica KAY expresion_logica 
-                        | expresion_logica KAM expresion_logica 
-                        | expresion_logica NV expresion_logica 
-                        | PAREIZQ expresion_logica KAY expresion_logica PAREDER
-                        | PAREIZQ expresion_logica KAM expresion_logica PAREDER
-                        | PAREIZQ expresion_logica NV expresion_logica PAREDER'''
-    if t[2] == "kay": t[0] = ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.KAY)
-    elif t[2] == "kam": t[0] = ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.KAM)
-    elif t[2] == "nv": t[0] =  ExpresionBooleana(t[1], t[3], OPERACION_BOOLEANA.NV)
-    elif t[3] == "kay": t[0] = ExpresionBooleana(t[2], t[4], OPERACION_BOOLEANA.KAY)
-    elif t[3] == "kam": t[0] = ExpresionBooleana(t[2], t[4], OPERACION_BOOLEANA.KAM)
-    elif t[3] == "nv": t[0] =  ExpresionBooleana(t[2], t[4], OPERACION_BOOLEANA.NV)
 
 def p_expresion_agrupacion(t):
     'expresion_numerica : PAREIZQ expresion_numerica PAREDER'

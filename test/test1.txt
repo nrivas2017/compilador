@@ -25,6 +25,3 @@ x = 3
 e = 3
 y ="hola"
 pekenun(x^e)
-
-
-2>1 kay 1>1

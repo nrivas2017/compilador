@@ -13,11 +13,6 @@ class OPERACION_LOGICA(Enum) :
     IGUAL = 3
     DISTINTO = 4
 
-class OPERACION_BOOLEANA(Enum) :
-    KAY = 1
-    KAM = 2
-    NV = 3
-
 class ExpresionNumerica:
     '''
         Esta clase representa una expresión numérica
@@ -94,17 +89,6 @@ class ExpresionCadenaNumerico(ExpresionCadena) :
 class ExpresionLogica() :
     '''
         Esta clase representa la expresión lógica.
-        Esta clase recibe los operandos y el operador
-    '''
-
-    def __init__(self, exp1, exp2, operador) :
-        self.exp1 = exp1
-        self.exp2 = exp2
-        self.operador = operador
-
-class ExpresionBooleana() :
-    '''
-        Esta clase representa la expresión booleana.
         Esta clase recibe los operandos y el operador
     '''
 

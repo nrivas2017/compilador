@@ -58,20 +58,10 @@ def resolver_cadena(expCad, ts) :
 def resolver_expreision_logica(expLog, ts) :
     exp1 = resolver_expresion_aritmetica(expLog.exp1, ts)
     exp2 = resolver_expresion_aritmetica(expLog.exp2, ts)
-    #print (expLog.exp1)
-    #print (expLog.exp2)
-    #print (expLog.operador)
     if expLog.operador == OPERACION_LOGICA.MAYOR : return exp1 > exp2
     if expLog.operador == OPERACION_LOGICA.MENOR : return exp1 < exp2
     if expLog.operador == OPERACION_LOGICA.IGUAL : return exp1 == exp2
     if expLog.operador == OPERACION_LOGICA.DISTINTO : return exp1 != exp2
-
-def resolver_expreision_booleana(expBool, ts):
-    exp1 = resolver_expresion_aritmetica(expBool.exp1, ts)
-    exp2 = resolver_expresion_aritmetica(expBool.exp2, ts)
-    if expBool.operador == OPERACION_BOOLEANA.KAY : return exp1 and exp2
-    if expBool.operador == OPERACION_BOOLEANA.KAM : return exp1 or exp2
-    if expBool.operador == OPERACION_BOOLEANA.NV : return exp1 is not exp2
 
 def resolver_expresion_aritmetica(expNum, ts) :
     if isinstance(expNum, ExpresionBinaria) :
