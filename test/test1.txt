@@ -1,15 +1,20 @@
 rakin a
 a = 3
 
-tuntepu(a>2){
-    pekenun (a)
-    a=a-1 
-}
-li (a==1){
-    pekenun ("a es igual a 1")
-}nvli{
-    pekenun("a no es igual a 1")
-}
+tuntepu(a>1)
+    llitulun
+        pekenun (a)
+        a=a-1 
+    afn
+
+li (a==1)
+    llitulun
+        pekenun ("a es igual a 1")
+    afn
+nvli
+    llitulun
+        pekenun("a no es igual a 1")
+    afn
 pekenun (a)
 
 

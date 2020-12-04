@@ -24,8 +24,6 @@ reservadas = {
     'watron' : 'WATRON',
     'kom' :  'KOM', 
     'nv' : 'NV', 
-    'pepiltun' : 'PEPILTUN',
-    'wichu' : 'WICHU', 
     'li' : 'LI', 
     'kam' : 'KAM', 
     'tuntepu' : 'TUNTEPU', 
@@ -35,7 +33,6 @@ reservadas = {
     'non' : 'NON', 
     'konme' : 'KONME',
     'kudaw' : 'KUDAW', 
-    'feywaj' : 'FEYWAJ', 
     'ponwi' : 'PONWI', 
     'pekenun' : 'PEKENUN', 
     'inche' : 'INCHE', 
@@ -47,7 +44,7 @@ reservadas = {
 
 tokens= ['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
          'ASIGNACION', 'DISTINTO', 'MENOR', 'MAYOR', 'PAREIZQ',
-        'PAREDER','LLAVIZQ','LLAVDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
+        'PAREDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
 		'COMA', 'IGUALQUE', 'CADENA','CONCAT'
         ] + list(reservadas.values())
 
@@ -63,8 +60,6 @@ t_MENOR = r'<'
 t_MAYOR = r'>'
 t_PAREIZQ = r'\('
 t_PAREDER = r'\)'
-t_LLAVIZQ = r'\{'
-t_LLAVDER = r'\}'
 t_POTENCIA = r'\^'
 t_COMA = r','
 t_IGUALQUE = r'=='
@@ -185,8 +180,7 @@ precedence = (
     ('left','MAS', 'MENOS'),
     ('left','POR','DIVIDIDO'),
     ('left','POTENCIA'),
-    ('left','PAREIZQ','PAREDER'),
-    ('left','LLAVIZQ','LLAVDER')
+    ('left','PAREIZQ','PAREDER')
 )
 
 def p_init(t) :
@@ -232,15 +226,15 @@ def p_asignacion_instr(t) :
     elif (type(t[3].val)==str) : n=1; t[0] =Asignacion(t[1], t[3],n)
 
 def p_tuntepu_instr(t) :
-    'tuntepu_instr     : TUNTEPU PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER'
+    'tuntepu_instr     : TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN'
     t[0] =tuntepu(t[3], t[6])
 
 def p_li_instr(t) :
-    'li_instr           : LI PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER'
+    'li_instr           : LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN'
     t[0] =li(t[3], t[6])
 
 def p_nvli_instr(t) :
-    'nvli_instr      : LI PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER NVLI LLAVIZQ instrucciones LLAVDER'
+    'nvli_instr      : LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN'
     t[0] =nvli(t[3], t[6], t[10])
 
 def p_expresion_binaria(t):
