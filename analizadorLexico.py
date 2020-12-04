@@ -41,12 +41,12 @@ reservadas = {
 
 
 tokens= ['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
-         'ASIGNACION', 'DISTINTO', 'MENOR', 'MENORIGUAL','MAYOR',
-        'MAYORIGUAL','PAREIZQ','PAREDER','LLAVIZQ','LLAVDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
+         'ASIGNACION', 'DISTINTO', 'MENOR', 'MAYOR', 'PAREIZQ',
+        'PAREDER','LLAVIZQ','LLAVDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
 		'COMA', 'IGUALQUE', 'CADENA'
         ] + list(reservadas.values())
 
-
+print (tokens)
 t_ignore = '\t'
 t_MAS = r'\+'
 t_MENOS = r'-'
@@ -55,9 +55,7 @@ t_DIVIDIDO = r'/'
 t_ASIGNACION = r'='
 t_DISTINTO = r'!='
 t_MENOR = r'<'
-t_MENORIGUAL = r'<='
 t_MAYOR = r'>'
-t_MAYORIGUAL = r'>='
 t_PAREIZQ = r'\('
 t_PAREDER = r'\)'
 t_LLAVIZQ = r'\{'
@@ -68,9 +66,7 @@ t_IGUALQUE = r'=='
 
 def t_ID(t):
     r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'
-    if t.value.upper() in reservadas:
-        t.value = t.value.upper()
-        t.type = t.value
+    t.type = reservadas.get(t.value.lower(),'ID') 
         
     return t
 
