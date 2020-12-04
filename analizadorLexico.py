@@ -4,12 +4,6 @@ import codecs
 import os
 import sys
 
-import ply.lex as lex
-import re
-import codecs
-import os
-import sys
-
 reservadas=['LLITULUN', 'AFN', 'KAY', 'NAMEMN', 'PVLE', 'NGUEN', 'KENUN', 'YAFUNGUELTUN', 
             'MEW', 'LAMBDA', 'WELTEKUN', 'WATRON', 'NVLI', 'KOM', 'NV', 'PEPILTUN', 'FILL', 
             'WICHU', 'LI', 'KAM', 'TUNTEPU', 'PETULN', 'DEUMAN', 'SHUNUL', 'NON', 'KONME',
@@ -17,7 +11,7 @@ reservadas=['LLITULUN', 'AFN', 'KAY', 'NAMEMN', 'PVLE', 'NGUEN', 'KENUN', 'YAFUN
 
 tokens= reservadas+['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
          'ASIGNACION', 'DISTINTO', 'MENOR', 'MENORIGUAL','MAYOR',
-        'MAYORIGUAL','PAREIZQ','PAREDER','CORIZQ','CORDER','COMENTARIO'
+        'MAYORIGUAL','PAREIZQ','PAREDER','CORIZQ','CORDER','COMENTARIO', 'POTENCIA'
 			]
 t_ignore = '\t'
 t_MAS = r'\+'
@@ -34,6 +28,7 @@ t_PAREIZQ = r'\('
 t_PAREDER = r'\)'
 t_CORIZQ = r'\['
 t_CORDER = r'\]'
+t_POTENCIA = r'\^'
 
 def t_ID(t):
   r'[a-zA-Z_][a-zA-Z0-9_]*'
@@ -73,7 +68,46 @@ def t_COMENTARIO(t):
   r'\@.*'
   pass
 
+def buscarArchivo(directorio):
+  archivos = []
+  numArchivo = ''
+  respuesta = False
+  cont = 1
+  
+  for base, dirs, files in os.walk(directorio)
+		archivos.append(files)
+    
+  for file in files:
+    print str(cont)+". "+file
+    cont = cont + 1
+    
+    
+  while respuesta == False:
+    numArchivo = input('\nNumero del test: ')
+    for file in files:
+      if file == files[int(numArchivo)-1]:
+        respuestas = True
+        break
+  print "Has escogido \"%s\" \n" %files[int(numArchivo)-1]
+  
+  return files[int(numArchivo)-1]
+
 lexer = lex.lex()
+
+directorio ='test'
+archivo = buscarArchivo(directorio)
+test = directorio+archivo
+fp = codecs.open(test, "r", "utf-8")
+cadena = fp.read()
+fp.close()
+
+laxer.input(cadena)
+
+while True:
+  tok = analizador.token()
+  if not tok : break
+  print tok
+
 
 #begin = llitulun
 #end = afn
