@@ -11,8 +11,9 @@ reservadas=['LLITULUN', 'AFN', 'KAY', 'NAMEMN', 'PVLE', 'NGUEN', 'KENUN', 'YAFUN
 
 tokens= reservadas+['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
          'ASIGNACION', 'DISTINTO', 'MENOR', 'MENORIGUAL','MAYOR',
-        'MAYORIGUAL','PAREIZQ','PAREDER','CORIZQ','CORDER','COMENTARIO', 'POTENCIA'
-			]
+        'MAYORIGUAL','PAREIZQ','PAREDER','CORIZQ','CORDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
+		'COMA'	
+        ]
 t_ignore = '\t'
 t_MAS = r'\+'
 t_MENOS = r'\-'
@@ -29,9 +30,10 @@ t_PAREDER = r'\)'
 t_CORIZQ = r'\['
 t_CORDER = r'\]'
 t_POTENCIA = r'\^'
+t_COMA = r','
 
 def t_ID(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]*'
+    r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'
     if t.value.upper() in reservadas:
         t.value = t.value.upper()
         t.type = t.value

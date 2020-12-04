@@ -1,7 +1,13 @@
+1
+asd
+
 ads=25
 @asfsad
 1+1
+1asd
+2.5
 /@asasdf
 asdf
 asf
 @/
+[2,2]
