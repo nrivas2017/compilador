@@ -27,7 +27,7 @@ class ExpresionBinaria(ExpresionNumerica) :
         self.exp1 = exp1
         self.exp2 = exp2
         self.operador = operador
-
+        self.val = 0
 class ExpresionNegativo(ExpresionNumerica) :
     '''
         Esta clase representa la Expresión Aritmética Negativa.

@@ -27,8 +27,9 @@ class Definicion(Instruccion) :
         Recibe como parámetro el nombre del identificador a definir
     '''
 
-    def __init__(self, id) :
+    def __init__(self, id,tipo) :
         self.id = id
+        self.tipo = tipo
 
 class Asignacion(Instruccion) :
     '''
@@ -36,9 +37,10 @@ class Asignacion(Instruccion) :
         Recibe como parámetro el identificador a asignar y el valor que será asignado.
     '''
 
-    def __init__(self, id, expNumerica) :
+    def __init__(self, id, exp,n) :
         self.id = id
-        self.expNumerica = expNumerica
+        self.exp = exp
+        self.n = n
 
 class li(Instruccion) : 
     '''

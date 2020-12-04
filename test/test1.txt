@@ -12,3 +12,9 @@ li (a==1){
 }
 pekenun (a)
 
+
+rakin x
+chillka y
+x = 3
+y ="hola"
+pekenun(x&y&" chao"&6+5)

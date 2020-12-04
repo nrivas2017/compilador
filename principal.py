@@ -7,12 +7,19 @@ def procesar_imprimir(instr, ts) :
     print('> ', resolver_cadena(instr.cad, ts))
 
 def procesar_definicion(instr, ts) :
-    simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, 0)      # inicializamos con 0 como valor por defecto
+    if instr.tipo == "rakin":
+        simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, 0)      # inicializamos con 0 como valor por defecto
+    if instr.tipo == "chillka":
+        simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.CHILLKA, "")
     ts.agregar(simbolo)
 
 def procesar_asignacion(instr, ts) :
-    val = resolver_expresion_aritmetica(instr.expNumerica, ts)
-    simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, val)
+    if instr.n == 0:
+        val = resolver_expresion_aritmetica(instr.exp, ts)
+        simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.RAKIN, val)
+    if instr.n == 1:
+        val = resolver_cadena(instr.exp, ts)
+        simbolo = TS.Simbolo(instr.id, TS.TIPO_DATO.CHILLKA, val)
     ts.actualizar(simbolo)
 
 def procesar_tuntepu(instr, ts) :

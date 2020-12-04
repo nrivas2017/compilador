@@ -199,8 +199,13 @@ def p_instrucciones_lista(t) :
     t[0] = t[1]
 
 def p_instruccion_definicion(t) :
-    'definicion_instr   : RAKIN ID'
-    t[0] =Definicion(t[2])
+    '''definicion_instr   : RAKIN ID
+                          | CHILLKA ID'''
+    
+    if t[1] == "rakin":
+        t[0] =Definicion(t[2],t[1])
+    elif t[1] == "chillka":
+        t[0] =Definicion(t[2],t[1])
 
 def p_instrucciones_instruccion(t) :
     'instrucciones    : instruccion '
@@ -220,8 +225,11 @@ def p_instruccion_pekenun(t) :
     t[0] =pekenun(t[3])
 
 def p_asignacion_instr(t) :
-    'asignacion_instr   : ID ASIGNACION expresion_numerica'
-    t[0] =Asignacion(t[1], t[3])
+    '''asignacion_instr   : ID ASIGNACION expresion_numerica
+                          | ID ASIGNACION expresion_cadena '''
+    
+    if (type(t[3].val)==int) : n=0;  t[0] =Asignacion(t[1], t[3],n)
+    elif (type(t[3].val)==str) : n=1; t[0] =Asignacion(t[1], t[3],n)
 
 def p_tuntepu_instr(t) :
     'tuntepu_instr     : TUNTEPU PAREIZQ expresion_logica PAREDER LLAVIZQ instrucciones LLAVDER'
