@@ -39,14 +39,15 @@ reservadas = {
     'ponwi' : 'PONWI', 
     'pekenun' : 'PEKENUN', 
     'inche' : 'INCHE', 
-    'chumnone' : 'CHUMNONE'
+    'chumnone' : 'CHUMNONE',
+    'numero':'NUMERO'
 }
 
 
 tokens= ['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
          'ASIGNACION', 'DISTINTO', 'MENOR', 'MAYOR', 'PAREIZQ',
         'PAREDER','LLAVIZQ','LLAVDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
-		'COMA', 'IGUALQUE', 'CADENA'
+		'COMA', 'IGUALQUE', 'CADENA','CONCAT'
         ] + list(reservadas.values())
 
 print (tokens)
@@ -66,6 +67,7 @@ t_LLAVDER = r'\}'
 t_POTENCIA = r'\^'
 t_COMA = r','
 t_IGUALQUE = r'=='
+t_CONCAT = r'&'
 
 def t_ID(t):
     r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'
@@ -170,6 +172,21 @@ def t_ccode_nonspace(t):
 
 
 
+# Construyendo el analizador léxico
+import ply.lex as lex
+lexer = lex.lex()
+
+precedence = (
+    ('right','ASIGNACION'),
+    ('left','DISTINTO'),
+    ('left','MENOR','MAYOR'),
+    ('left','MAS', 'MENOS'),
+    ('left','POR','DIVIDIDO'),
+    ('left','POTENCIA'),
+    ('left','PAREIZQ','PAREDER'),
+    ('left','LLAVIZQ','LLAVDER')
+)
+
 def p_init(t) :
     'init            : instrucciones'
     t[0] = t[1]
@@ -238,6 +255,10 @@ def p_expresion_id(t):
 def p_expresion_cadena(t) :
     'expresion_cadena     : CADENA'
     t[0] = ExpresionDobleComilla(t[1])
+
+def p_expresion_concatenacion(t) :
+    'expresion_cadena     : expresion_cadena CONCAT expresion_cadena'
+    t[0] = ExpresionConcatenar(t[1], t[3])
 
 def p_expresion_cadena_numerico(t) :
     'expresion_cadena     : expresion_numerica'

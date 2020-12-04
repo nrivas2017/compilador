@@ -51,10 +51,10 @@ def resolver_cadena(expCad, ts) :
 def resolver_expreision_logica(expLog, ts) :
     exp1 = resolver_expresion_aritmetica(expLog.exp1, ts)
     exp2 = resolver_expresion_aritmetica(expLog.exp2, ts)
-    if expLog.operador == OPERACION_LOGICA.MAYOR_QUE : return exp1 > exp2
-    if expLog.operador == OPERACION_LOGICA.MENOR_QUE : return exp1 < exp2
+    if expLog.operador == OPERACION_LOGICA.MAYOR : return exp1 > exp2
+    if expLog.operador == OPERACION_LOGICA.MENOR : return exp1 < exp2
     if expLog.operador == OPERACION_LOGICA.IGUAL : return exp1 == exp2
-    if expLog.operador == OPERACION_LOGICA.DIFERENTE : return exp1 != exp2
+    if expLog.operador == OPERACION_LOGICA.DISTINTO : return exp1 != exp2
 
 def resolver_expresion_aritmetica(expNum, ts) :
     if isinstance(expNum, ExpresionBinaria) :
@@ -76,15 +76,15 @@ def resolver_expresion_aritmetica(expNum, ts) :
 def procesar_instrucciones(instrucciones, ts) :
     ## lista de instrucciones recolectadas
     for instr in instrucciones :
-        if isinstance(instr, Imprimir) : procesar_imprimir(instr, ts)
+        if isinstance(instr, pekenun) : procesar_imprimir(instr, ts)
         elif isinstance(instr, Definicion) : procesar_definicion(instr, ts)
         elif isinstance(instr, Asignacion) : procesar_asignacion(instr, ts)
-        elif isinstance(instr, Mientras) : procesar_mientras(instr, ts)
-        elif isinstance(instr, If) : procesar_if(instr, ts)
+        elif isinstance(instr, tuntepu) : procesar_mientras(instr, ts)
+        elif isinstance(instr, li) : procesar_if(instr, ts)
         elif isinstance(instr, IfElse) : procesar_if_else(instr, ts)
         else : print('Error: instrucción no válida')
 
-f = open("./entrada.txt", "r")
+f = open("./test/test1.txt", "r")
 input = f.read()
 
 instrucciones = g.parse(input)

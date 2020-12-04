@@ -1,16 +1,2 @@
-1
-asd
-yafungueltun
-ads=25
-@asfsad
-1+1
-1asd
-2.5
-/@asasdf
-asdf
-asf
-@/
-{2,2}
-"hola"
- asd
-KAM
+numero a
+a=1
