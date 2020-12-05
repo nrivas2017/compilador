@@ -3,6 +3,11 @@ import ts as TS
 from expresiones import *
 from instrucciones import *
 
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from mydesign import Ui_MainWindow  # importing our generated file
+import sys
+
 def procesar_imprimir(instr, ts) :
     print('> ', resolver_cadena(instr.cad, ts))
 
@@ -94,6 +99,7 @@ def procesar_instrucciones(instrucciones, ts) :
 
 
 
+
 f = open("./test/test1.txt", "r")
 input = f.read()
 
@@ -101,5 +107,46 @@ input = f.read()
 instrucciones = g.parse(input)
 
 ts_global = TS.TablaDeSimbolos()
-
 procesar_instrucciones(instrucciones, ts_global)
+
+class mywindow(QMainWindow):
+
+    def __init__(self):
+        super(mywindow, self).__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        self.ui.b_lexico.clicked.connect(self.ev_lexico)
+        self.ui.b_sintactico.clicked.connect(self.ev_sintactico)
+
+    def ev_lexico(self):
+        self.ui.text_lexico.setText('')
+        datos = self.ui.text_codigo.toPlainText().strip()
+
+        resultado_lexico = g.prueba(datos)
+        # self.ui.text_lexico.setText("Analizando lexico")
+        cadena= ''
+        for lex in resultado_lexico:
+            cadena += lex + "\n"
+        self.ui.text_lexico.setText(cadena)
+        
+    def ev_sintactico(self):
+        self.ui.text_sintactico.setText('')
+        datos = self.ui.text_codigo.toPlainText().strip()
+
+        resultado_sintactico = g.prueba_sintactica(datos)
+        cadena = ''
+
+        #Armanos la cadena a mostrar
+        for item in resultado_sintactico:
+            cadena += item + "\n"
+        # mostramos en pantalla
+        self.ui.text_sintactico.setText( cadena )
+
+def window():
+    app = QApplication(sys.argv)
+    win = mywindow()
+    win.show()
+    sys.exit(app.exec())
+
+window()

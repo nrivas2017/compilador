@@ -2,15 +2,11 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    COMA
     COMENTARIO
     COMENTARIO_MULTILINEA
-    INCHE
-    KUDAW
-    NGUEN
+    NV
     PONWI
     PVLE
-    WELTEKUN
 
 Grammar
 
@@ -37,55 +33,43 @@ Rule 19    expresion_numerica -> expresion_numerica MENOS expresion_numerica
 Rule 20    expresion_numerica -> expresion_numerica POR expresion_numerica
 Rule 21    expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica
 Rule 22    expresion_numerica -> expresion_numerica POTENCIA expresion_numerica
-Rule 23    expresion_booleana -> expresion_logica KAY expresion_logica
-Rule 24    expresion_booleana -> expresion_logica KAM expresion_logica
-Rule 25    expresion_booleana -> expresion_logica NV expresion_logica
-Rule 26    expresion_booleana -> PAREIZQ expresion_logica KAY expresion_logica PAREDER
-Rule 27    expresion_booleana -> PAREIZQ expresion_logica KAM expresion_logica PAREDER
-Rule 28    expresion_booleana -> PAREIZQ expresion_logica NV expresion_logica PAREDER
-Rule 29    expresion_numerica -> PAREIZQ expresion_numerica PAREDER
-Rule 30    expresion_numerica -> ENTERO
-Rule 31    expresion_numerica -> DECIMAL
-Rule 32    expresion_numerica -> ID
-Rule 33    expresion_cadena -> CADENA
-Rule 34    expresion_cadena -> expresion_cadena CONCAT expresion_cadena
-Rule 35    expresion_cadena -> expresion_numerica
-Rule 36    expresion_logica -> expresion_numerica MAYOR expresion_numerica
-Rule 37    expresion_logica -> expresion_numerica MENOR expresion_numerica
-Rule 38    expresion_logica -> expresion_numerica IGUALQUE expresion_numerica
-Rule 39    expresion_logica -> expresion_numerica DISTINTO expresion_numerica
+Rule 23    expresion_numerica -> PAREIZQ expresion_numerica PAREDER
+Rule 24    expresion_numerica -> ENTERO
+Rule 25    expresion_numerica -> DECIMAL
+Rule 26    expresion_numerica -> ID
+Rule 27    expresion_cadena -> CADENA
+Rule 28    expresion_cadena -> expresion_cadena CONCAT expresion_cadena
+Rule 29    expresion_cadena -> expresion_numerica
+Rule 30    expresion_logica -> expresion_numerica MAYOR expresion_numerica
+Rule 31    expresion_logica -> expresion_numerica MENOR expresion_numerica
+Rule 32    expresion_logica -> expresion_numerica IGUALQUE expresion_numerica
+Rule 33    expresion_logica -> expresion_numerica DISTINTO expresion_numerica
 
 Terminals, with rules where they appear
 
 AFN                  : 15 16 17 17
 ASIGNACION           : 13 14
-CADENA               : 33
+CADENA               : 27
 CHILLKA              : 4
-COMA                 : 
 COMENTARIO           : 
 COMENTARIO_MULTILINEA : 
-CONCAT               : 34
-DECIMAL              : 31
-DISTINTO             : 39
+CONCAT               : 28
+DECIMAL              : 25
+DISTINTO             : 33
 DIVIDIDO             : 21
-ENTERO               : 30
-ID                   : 3 4 13 14 32
-IGUALQUE             : 38
-INCHE                : 
-KAM                  : 24 27
-KAY                  : 23 26
-KUDAW                : 
+ENTERO               : 24
+ID                   : 3 4 13 14 26
+IGUALQUE             : 32
 LI                   : 16 17
 LLITULUN             : 15 16 17 17
 MAS                  : 18
-MAYOR                : 36
-MENOR                : 37
+MAYOR                : 30
+MENOR                : 31
 MENOS                : 19
-NGUEN                : 
-NV                   : 25 28
+NV                   : 
 NVLI                 : 17
-PAREDER              : 12 15 16 17 26 27 28 29
-PAREIZQ              : 12 15 16 17 26 27 28 29
+PAREDER              : 12 15 16 17 23
+PAREIZQ              : 12 15 16 17 23
 PEKENUN              : 12
 PONWI                : 
 POR                  : 20
@@ -93,17 +77,15 @@ POTENCIA             : 22
 PVLE                 : 
 RAKIN                : 3
 TUNTEPU              : 15
-WELTEKUN             : 
 error                : 
 
 Nonterminals, with rules where they appear
 
 asignacion_instr     : 8
 definicion_instr     : 7
-expresion_booleana   : 
-expresion_cadena     : 12 14 34 34
-expresion_logica     : 15 16 17 23 23 24 24 25 25 26 26 27 27 28 28
-expresion_numerica   : 13 18 18 19 19 20 20 21 21 22 22 29 35 36 36 37 37 38 38 39 39
+expresion_cadena     : 12 14 28 28
+expresion_logica     : 15 16 17
+expresion_numerica   : 13 18 18 19 19 20 20 21 21 22 22 23 29 30 30 31 31 32 32 33 33
 init                 : 0
 instruccion          : 2 5
 instrucciones        : 1 2 15 16 17 17
@@ -352,18 +334,18 @@ state 16
 state 17
 
     (12) pekenun_instr -> PEKENUN PAREIZQ . expresion_cadena PAREDER
-    (33) expresion_cadena -> . CADENA
-    (34) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
-    (35) expresion_cadena -> . expresion_numerica
+    (27) expresion_cadena -> . CADENA
+    (28) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (29) expresion_cadena -> . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     CADENA          shift and go to state 25
     PAREIZQ         shift and go to state 23
@@ -397,13 +379,13 @@ state 19
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
-    (33) expresion_cadena -> . CADENA
-    (34) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
-    (35) expresion_cadena -> . expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+    (27) expresion_cadena -> . CADENA
+    (28) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (29) expresion_cadena -> . expresion_numerica
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -431,19 +413,19 @@ state 20
 state 21
 
     (15) tuntepu_instr -> TUNTEPU PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN
-    (36) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
-    (37) expresion_logica -> . expresion_numerica MENOR expresion_numerica
-    (38) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
-    (39) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
+    (30) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
+    (31) expresion_logica -> . expresion_numerica MENOR expresion_numerica
+    (32) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
+    (33) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -457,19 +439,19 @@ state 22
 
     (16) li_instr -> LI PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN
     (17) nvli_instr -> LI PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
-    (36) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
-    (37) expresion_logica -> . expresion_numerica MENOR expresion_numerica
-    (38) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
-    (39) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
+    (30) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
+    (31) expresion_logica -> . expresion_numerica MENOR expresion_numerica
+    (32) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
+    (33) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -481,16 +463,16 @@ state 22
 
 state 23
 
-    (29) expresion_numerica -> PAREIZQ . expresion_numerica PAREDER
+    (23) expresion_numerica -> PAREIZQ . expresion_numerica PAREDER
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -502,7 +484,7 @@ state 23
 state 24
 
     (12) pekenun_instr -> PEKENUN PAREIZQ expresion_cadena . PAREDER
-    (34) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+    (28) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
 
     PAREDER         shift and go to state 36
     CONCAT          shift and go to state 37
@@ -510,39 +492,39 @@ state 24
 
 state 25
 
-    (33) expresion_cadena -> CADENA .
+    (27) expresion_cadena -> CADENA .
 
-    PAREDER         reduce using rule 33 (expresion_cadena -> CADENA .)
-    CONCAT          reduce using rule 33 (expresion_cadena -> CADENA .)
-    PEKENUN         reduce using rule 33 (expresion_cadena -> CADENA .)
-    RAKIN           reduce using rule 33 (expresion_cadena -> CADENA .)
-    CHILLKA         reduce using rule 33 (expresion_cadena -> CADENA .)
-    ID              reduce using rule 33 (expresion_cadena -> CADENA .)
-    TUNTEPU         reduce using rule 33 (expresion_cadena -> CADENA .)
-    LI              reduce using rule 33 (expresion_cadena -> CADENA .)
-    $end            reduce using rule 33 (expresion_cadena -> CADENA .)
-    AFN             reduce using rule 33 (expresion_cadena -> CADENA .)
+    PAREDER         reduce using rule 27 (expresion_cadena -> CADENA .)
+    CONCAT          reduce using rule 27 (expresion_cadena -> CADENA .)
+    PEKENUN         reduce using rule 27 (expresion_cadena -> CADENA .)
+    RAKIN           reduce using rule 27 (expresion_cadena -> CADENA .)
+    CHILLKA         reduce using rule 27 (expresion_cadena -> CADENA .)
+    ID              reduce using rule 27 (expresion_cadena -> CADENA .)
+    TUNTEPU         reduce using rule 27 (expresion_cadena -> CADENA .)
+    LI              reduce using rule 27 (expresion_cadena -> CADENA .)
+    $end            reduce using rule 27 (expresion_cadena -> CADENA .)
+    AFN             reduce using rule 27 (expresion_cadena -> CADENA .)
 
 
 state 26
 
-    (35) expresion_cadena -> expresion_numerica .
+    (29) expresion_cadena -> expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
     (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
 
-    PAREDER         reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    CONCAT          reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    PEKENUN         reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    RAKIN           reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    CHILLKA         reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    ID              reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    TUNTEPU         reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    LI              reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    $end            reduce using rule 35 (expresion_cadena -> expresion_numerica .)
-    AFN             reduce using rule 35 (expresion_cadena -> expresion_numerica .)
+    PAREDER         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    CONCAT          reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    PEKENUN         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    RAKIN           reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    CHILLKA         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    ID              reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    TUNTEPU         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    LI              reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    $end            reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    AFN             reduce using rule 29 (expresion_cadena -> expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
@@ -552,77 +534,77 @@ state 26
 
 state 27
 
-    (30) expresion_numerica -> ENTERO .
+    (24) expresion_numerica -> ENTERO .
 
-    MAS             reduce using rule 30 (expresion_numerica -> ENTERO .)
-    MENOS           reduce using rule 30 (expresion_numerica -> ENTERO .)
-    POR             reduce using rule 30 (expresion_numerica -> ENTERO .)
-    DIVIDIDO        reduce using rule 30 (expresion_numerica -> ENTERO .)
-    POTENCIA        reduce using rule 30 (expresion_numerica -> ENTERO .)
-    PAREDER         reduce using rule 30 (expresion_numerica -> ENTERO .)
-    CONCAT          reduce using rule 30 (expresion_numerica -> ENTERO .)
-    PEKENUN         reduce using rule 30 (expresion_numerica -> ENTERO .)
-    RAKIN           reduce using rule 30 (expresion_numerica -> ENTERO .)
-    CHILLKA         reduce using rule 30 (expresion_numerica -> ENTERO .)
-    ID              reduce using rule 30 (expresion_numerica -> ENTERO .)
-    TUNTEPU         reduce using rule 30 (expresion_numerica -> ENTERO .)
-    LI              reduce using rule 30 (expresion_numerica -> ENTERO .)
-    $end            reduce using rule 30 (expresion_numerica -> ENTERO .)
-    AFN             reduce using rule 30 (expresion_numerica -> ENTERO .)
-    MAYOR           reduce using rule 30 (expresion_numerica -> ENTERO .)
-    MENOR           reduce using rule 30 (expresion_numerica -> ENTERO .)
-    IGUALQUE        reduce using rule 30 (expresion_numerica -> ENTERO .)
-    DISTINTO        reduce using rule 30 (expresion_numerica -> ENTERO .)
+    MAS             reduce using rule 24 (expresion_numerica -> ENTERO .)
+    MENOS           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    POR             reduce using rule 24 (expresion_numerica -> ENTERO .)
+    DIVIDIDO        reduce using rule 24 (expresion_numerica -> ENTERO .)
+    POTENCIA        reduce using rule 24 (expresion_numerica -> ENTERO .)
+    PAREDER         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    CONCAT          reduce using rule 24 (expresion_numerica -> ENTERO .)
+    PEKENUN         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    RAKIN           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    CHILLKA         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    ID              reduce using rule 24 (expresion_numerica -> ENTERO .)
+    TUNTEPU         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    LI              reduce using rule 24 (expresion_numerica -> ENTERO .)
+    $end            reduce using rule 24 (expresion_numerica -> ENTERO .)
+    AFN             reduce using rule 24 (expresion_numerica -> ENTERO .)
+    MAYOR           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    MENOR           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    IGUALQUE        reduce using rule 24 (expresion_numerica -> ENTERO .)
+    DISTINTO        reduce using rule 24 (expresion_numerica -> ENTERO .)
 
 
 state 28
 
-    (31) expresion_numerica -> DECIMAL .
+    (25) expresion_numerica -> DECIMAL .
 
-    MAS             reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    MENOS           reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    POR             reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    DIVIDIDO        reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    POTENCIA        reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    PAREDER         reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    CONCAT          reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    PEKENUN         reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    RAKIN           reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    CHILLKA         reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    ID              reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    TUNTEPU         reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    LI              reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    $end            reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    AFN             reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    MAYOR           reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    MENOR           reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    IGUALQUE        reduce using rule 31 (expresion_numerica -> DECIMAL .)
-    DISTINTO        reduce using rule 31 (expresion_numerica -> DECIMAL .)
+    MAS             reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    MENOS           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    POR             reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    DIVIDIDO        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    POTENCIA        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    PAREDER         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    CONCAT          reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    PEKENUN         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    RAKIN           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    CHILLKA         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    ID              reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    TUNTEPU         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    LI              reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    $end            reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    AFN             reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    MAYOR           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    MENOR           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    IGUALQUE        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    DISTINTO        reduce using rule 25 (expresion_numerica -> DECIMAL .)
 
 
 state 29
 
-    (32) expresion_numerica -> ID .
+    (26) expresion_numerica -> ID .
 
-    MAS             reduce using rule 32 (expresion_numerica -> ID .)
-    MENOS           reduce using rule 32 (expresion_numerica -> ID .)
-    POR             reduce using rule 32 (expresion_numerica -> ID .)
-    DIVIDIDO        reduce using rule 32 (expresion_numerica -> ID .)
-    POTENCIA        reduce using rule 32 (expresion_numerica -> ID .)
-    PAREDER         reduce using rule 32 (expresion_numerica -> ID .)
-    CONCAT          reduce using rule 32 (expresion_numerica -> ID .)
-    PEKENUN         reduce using rule 32 (expresion_numerica -> ID .)
-    RAKIN           reduce using rule 32 (expresion_numerica -> ID .)
-    CHILLKA         reduce using rule 32 (expresion_numerica -> ID .)
-    ID              reduce using rule 32 (expresion_numerica -> ID .)
-    TUNTEPU         reduce using rule 32 (expresion_numerica -> ID .)
-    LI              reduce using rule 32 (expresion_numerica -> ID .)
-    $end            reduce using rule 32 (expresion_numerica -> ID .)
-    AFN             reduce using rule 32 (expresion_numerica -> ID .)
-    MAYOR           reduce using rule 32 (expresion_numerica -> ID .)
-    MENOR           reduce using rule 32 (expresion_numerica -> ID .)
-    IGUALQUE        reduce using rule 32 (expresion_numerica -> ID .)
-    DISTINTO        reduce using rule 32 (expresion_numerica -> ID .)
+    MAS             reduce using rule 26 (expresion_numerica -> ID .)
+    MENOS           reduce using rule 26 (expresion_numerica -> ID .)
+    POR             reduce using rule 26 (expresion_numerica -> ID .)
+    DIVIDIDO        reduce using rule 26 (expresion_numerica -> ID .)
+    POTENCIA        reduce using rule 26 (expresion_numerica -> ID .)
+    PAREDER         reduce using rule 26 (expresion_numerica -> ID .)
+    CONCAT          reduce using rule 26 (expresion_numerica -> ID .)
+    PEKENUN         reduce using rule 26 (expresion_numerica -> ID .)
+    RAKIN           reduce using rule 26 (expresion_numerica -> ID .)
+    CHILLKA         reduce using rule 26 (expresion_numerica -> ID .)
+    ID              reduce using rule 26 (expresion_numerica -> ID .)
+    TUNTEPU         reduce using rule 26 (expresion_numerica -> ID .)
+    LI              reduce using rule 26 (expresion_numerica -> ID .)
+    $end            reduce using rule 26 (expresion_numerica -> ID .)
+    AFN             reduce using rule 26 (expresion_numerica -> ID .)
+    MAYOR           reduce using rule 26 (expresion_numerica -> ID .)
+    MENOR           reduce using rule 26 (expresion_numerica -> ID .)
+    IGUALQUE        reduce using rule 26 (expresion_numerica -> ID .)
+    DISTINTO        reduce using rule 26 (expresion_numerica -> ID .)
 
 
 state 30
@@ -633,7 +615,7 @@ state 30
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
     (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
-    (35) expresion_cadena -> expresion_numerica .
+    (29) expresion_cadena -> expresion_numerica .
 
   ! reduce/reduce conflict for PEKENUN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
   ! reduce/reduce conflict for RAKIN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
@@ -656,22 +638,22 @@ state 30
     POR             shift and go to state 40
     DIVIDIDO        shift and go to state 41
     POTENCIA        shift and go to state 42
-    CONCAT          reduce using rule 35 (expresion_cadena -> expresion_numerica .)
+    CONCAT          reduce using rule 29 (expresion_cadena -> expresion_numerica .)
 
-  ! PEKENUN         [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! RAKIN           [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! CHILLKA         [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! ID              [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! TUNTEPU         [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! LI              [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! $end            [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
-  ! AFN             [ reduce using rule 35 (expresion_cadena -> expresion_numerica .) ]
+  ! PEKENUN         [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! RAKIN           [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! CHILLKA         [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! ID              [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! TUNTEPU         [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! LI              [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! $end            [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! AFN             [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
 
 
 state 31
 
     (14) asignacion_instr -> ID ASIGNACION expresion_cadena .
-    (34) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+    (28) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
 
     PEKENUN         reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
     RAKIN           reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
@@ -693,10 +675,10 @@ state 32
 
 state 33
 
-    (36) expresion_logica -> expresion_numerica . MAYOR expresion_numerica
-    (37) expresion_logica -> expresion_numerica . MENOR expresion_numerica
-    (38) expresion_logica -> expresion_numerica . IGUALQUE expresion_numerica
-    (39) expresion_logica -> expresion_numerica . DISTINTO expresion_numerica
+    (30) expresion_logica -> expresion_numerica . MAYOR expresion_numerica
+    (31) expresion_logica -> expresion_numerica . MENOR expresion_numerica
+    (32) expresion_logica -> expresion_numerica . IGUALQUE expresion_numerica
+    (33) expresion_logica -> expresion_numerica . DISTINTO expresion_numerica
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
@@ -724,7 +706,7 @@ state 34
 
 state 35
 
-    (29) expresion_numerica -> PAREIZQ expresion_numerica . PAREDER
+    (23) expresion_numerica -> PAREIZQ expresion_numerica . PAREDER
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
@@ -755,19 +737,19 @@ state 36
 
 state 37
 
-    (34) expresion_cadena -> expresion_cadena CONCAT . expresion_cadena
-    (33) expresion_cadena -> . CADENA
-    (34) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
-    (35) expresion_cadena -> . expresion_numerica
+    (28) expresion_cadena -> expresion_cadena CONCAT . expresion_cadena
+    (27) expresion_cadena -> . CADENA
+    (28) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (29) expresion_cadena -> . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     CADENA          shift and go to state 25
     PAREIZQ         shift and go to state 23
@@ -786,10 +768,10 @@ state 38
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -806,10 +788,10 @@ state 39
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -826,10 +808,10 @@ state 40
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -846,10 +828,10 @@ state 41
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -866,10 +848,10 @@ state 42
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -887,16 +869,16 @@ state 43
 
 state 44
 
-    (36) expresion_logica -> expresion_numerica MAYOR . expresion_numerica
+    (30) expresion_logica -> expresion_numerica MAYOR . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -907,16 +889,16 @@ state 44
 
 state 45
 
-    (37) expresion_logica -> expresion_numerica MENOR . expresion_numerica
+    (31) expresion_logica -> expresion_numerica MENOR . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -927,16 +909,16 @@ state 45
 
 state 46
 
-    (38) expresion_logica -> expresion_numerica IGUALQUE . expresion_numerica
+    (32) expresion_logica -> expresion_numerica IGUALQUE . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -947,16 +929,16 @@ state 46
 
 state 47
 
-    (39) expresion_logica -> expresion_numerica DISTINTO . expresion_numerica
+    (33) expresion_logica -> expresion_numerica DISTINTO . expresion_numerica
     (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
     (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
     (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
     (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
     (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
-    (29) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
-    (30) expresion_numerica -> . ENTERO
-    (31) expresion_numerica -> . DECIMAL
-    (32) expresion_numerica -> . ID
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
 
     PAREIZQ         shift and go to state 23
     ENTERO          shift and go to state 27
@@ -975,47 +957,47 @@ state 48
 
 state 49
 
-    (29) expresion_numerica -> PAREIZQ expresion_numerica PAREDER .
+    (23) expresion_numerica -> PAREIZQ expresion_numerica PAREDER .
 
-    MAS             reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    MENOS           reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    POR             reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    DIVIDIDO        reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    POTENCIA        reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    PAREDER         reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    CONCAT          reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    PEKENUN         reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    RAKIN           reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    CHILLKA         reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    ID              reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    TUNTEPU         reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    LI              reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    $end            reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    AFN             reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    MAYOR           reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    MENOR           reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    IGUALQUE        reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
-    DISTINTO        reduce using rule 29 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MAS             reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MENOS           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    POR             reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    DIVIDIDO        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    POTENCIA        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PAREDER         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    CONCAT          reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PEKENUN         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    RAKIN           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    CHILLKA         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    ID              reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    TUNTEPU         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    LI              reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    $end            reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    AFN             reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MAYOR           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MENOR           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    IGUALQUE        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    DISTINTO        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
 
 
 state 50
 
-    (34) expresion_cadena -> expresion_cadena CONCAT expresion_cadena .
-    (34) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+    (28) expresion_cadena -> expresion_cadena CONCAT expresion_cadena .
+    (28) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
 
   ! shift/reduce conflict for CONCAT resolved as shift
-    PAREDER         reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    PEKENUN         reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    RAKIN           reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    CHILLKA         reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    ID              reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    TUNTEPU         reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    LI              reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    $end            reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
-    AFN             reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    PAREDER         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    PEKENUN         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    RAKIN           reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    CHILLKA         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    ID              reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    TUNTEPU         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    LI              reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    $end            reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    AFN             reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
     CONCAT          shift and go to state 37
 
-  ! CONCAT          [ reduce using rule 34 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .) ]
+  ! CONCAT          [ reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .) ]
 
 
 state 51
@@ -1236,14 +1218,14 @@ state 56
 
 state 57
 
-    (36) expresion_logica -> expresion_numerica MAYOR expresion_numerica .
+    (30) expresion_logica -> expresion_numerica MAYOR expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
     (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
 
-    PAREDER         reduce using rule 36 (expresion_logica -> expresion_numerica MAYOR expresion_numerica .)
+    PAREDER         reduce using rule 30 (expresion_logica -> expresion_numerica MAYOR expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
@@ -1253,14 +1235,14 @@ state 57
 
 state 58
 
-    (37) expresion_logica -> expresion_numerica MENOR expresion_numerica .
+    (31) expresion_logica -> expresion_numerica MENOR expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
     (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
 
-    PAREDER         reduce using rule 37 (expresion_logica -> expresion_numerica MENOR expresion_numerica .)
+    PAREDER         reduce using rule 31 (expresion_logica -> expresion_numerica MENOR expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
@@ -1270,14 +1252,14 @@ state 58
 
 state 59
 
-    (38) expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .
+    (32) expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
     (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
 
-    PAREDER         reduce using rule 38 (expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .)
+    PAREDER         reduce using rule 32 (expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40
@@ -1287,14 +1269,14 @@ state 59
 
 state 60
 
-    (39) expresion_logica -> expresion_numerica DISTINTO expresion_numerica .
+    (33) expresion_logica -> expresion_numerica DISTINTO expresion_numerica .
     (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
     (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
     (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
     (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
     (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
 
-    PAREDER         reduce using rule 39 (expresion_logica -> expresion_numerica DISTINTO expresion_numerica .)
+    PAREDER         reduce using rule 33 (expresion_logica -> expresion_numerica DISTINTO expresion_numerica .)
     MAS             shift and go to state 38
     MENOS           shift and go to state 39
     POR             shift and go to state 40

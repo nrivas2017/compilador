@@ -7,7 +7,9 @@ from expresiones import *
 from instrucciones import *
 import ply.yacc as yacc
 
-reservadas=[]
+# resultado del analisis
+resultado_lexema = []
+resultado_gramatica = []
 
 reservadas = {
     'llitulun' : 'LLITULUN', 
@@ -27,7 +29,7 @@ reservadas = {
 tokens= ['ID', 'ENTERO','DECIMAL', 'MAS', 'MENOS', 'POR','DIVIDIDO',
          'ASIGNACION', 'DISTINTO', 'MENOR', 'MAYOR', 'PAREIZQ',
         'PAREDER','COMENTARIO', 'POTENCIA', 'COMENTARIO_MULTILINEA',
-		'COMA', 'IGUALQUE', 'CADENA','CONCAT'
+		'IGUALQUE', 'CADENA','CONCAT'
         ] + list(reservadas.values())
 
 
@@ -43,7 +45,6 @@ t_MAYOR = r'>'
 t_PAREIZQ = r'\('
 t_PAREDER = r'\)'
 t_POTENCIA = r'\^'
-t_COMA = r','
 t_IGUALQUE = r'=='
 t_CONCAT = r'&'
 
@@ -81,8 +82,14 @@ def t_newline(t):
     t.lexer.lineno += t.value.count("\n")
   
 def t_error(t):
-    print("Illegal character '%s'" % t.value[0])
+    global resultado_lexema
+    estado = "** Token no valido en la Linea {:4} Valor {:16} Posicion {:4}".format(str(t.lineno), str(t.value),
+                                                                      str(t.lexpos))
+    resultado_lexema.append(estado)
     t.lexer.skip(1)
+
+    #print("Illegal character '%s'" % t.value[0])
+    #t.lexer.skip(1)
     
 # Comentario simple // @ ...
 def t_COMENTARIO(t):
@@ -99,6 +106,22 @@ def t_ccode_nonspace(t):
     pass
 
 
+# Prueba de ingreso
+def prueba(data):
+    global resultado_lexema
+
+    analizador = lex.lex()
+    analizador.input(data)
+
+    resultado_lexema.clear()
+    while True:
+        tok = analizador.token()
+        if not tok:
+            break
+        # print("lexema de "+tok.type+" valor "+tok.value+" linea "tok.lineno)
+        estado = "Linea {:4} Tipo {:16} Valor {:16} Posicion {:4}".format(str(tok.lineno),str(tok.type) ,str(tok.value), str(tok.lexpos) )
+        resultado_lexema.append(estado)
+    return resultado_lexema
 #analizador = lex.lex()
 
 #test = 'test/test1.txt'
@@ -267,9 +290,30 @@ def p_expresion_logica(t) :
     elif t[2] == '!=' : t[0] = ExpresionLogica(t[1], t[3], OPERACION_LOGICA.DISTINTO)
 
 def p_error(t):
-    print(t)
-    print("Error sintáctico en '%s'" % t.value)
+    #print(t)
+    #print("Error sintáctico en '%s'" % t.value)
+    global resultado_gramatica
+    if t:
+        resultado = "Error sintactico de tipo {} en el valor {}".format( str(t.type),str(t.value))
+        print(resultado)
+    else:
+        resultado = "Error sintactico {}".format(t)
+        print(resultado)
+    resultado_gramatica.append(resultado)
 
+def prueba_sintactica(data):
+    global resultado_gramatica
+    resultado_gramatica.clear()
+
+    for item in data.splitlines():
+        if item:
+            gram = parser.parse(item)
+            if gram:
+                resultado_gramatica.append(str(gram))
+        else: print("data vacia")
+
+    print("result: ", resultado_gramatica)
+    return resultado_gramatica
 
 parser = yacc.yacc()
 
