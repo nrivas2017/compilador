@@ -296,10 +296,8 @@ def p_error(t):
     global resultado_gramatica
     if t:
         resultado = "Error sintactico de tipo {} en el valor {}".format( str(t.type),str(t.value))
-        print(resultado)
     else:
         resultado = "Error sintactico {}".format(t)
-        print(resultado)
     resultado_gramatica.append(resultado)
 """
 def prueba_sintactica(data):
@@ -404,17 +402,21 @@ def resolver_expresion_aritmetica(expNum, ts) :
 def procesar_instrucciones(instrucciones, ts) :
     ## lista de instrucciones recolectadas
     global resultado_gramatica
-    for instr in instrucciones :
-        if isinstance(instr, pekenun) : 
-            resultado_gramatica.append(procesar_imprimir(instr, ts))
-        elif isinstance(instr, Definicion) : procesar_definicion(instr, ts)
-        elif isinstance(instr, Asignacion) : procesar_asignacion(instr, ts)
-        elif isinstance(instr, tuntepu) : procesar_tuntepu(instr, ts)
-        elif isinstance(instr, li) : procesar_li(instr, ts)
-        elif isinstance(instr, nvli) : procesar_nvli(instr, ts)
-        else : 
-            print ('Error: instrucción no válida')
-            resultado_gramatica.append('> Error: instrucción no válida')
+    try:
+        for instr in instrucciones :
+            if isinstance(instr, pekenun) : 
+                resultado_gramatica.append(procesar_imprimir(instr, ts))
+            elif isinstance(instr, Definicion) : procesar_definicion(instr, ts)
+            elif isinstance(instr, Asignacion) : procesar_asignacion(instr, ts)
+            elif isinstance(instr, tuntepu) : procesar_tuntepu(instr, ts)
+            elif isinstance(instr, li) : procesar_li(instr, ts)
+            elif isinstance(instr, nvli) : procesar_nvli(instr, ts)
+            else : 
+                print ('Error: instrucción no válida')
+                resultado_gramatica.append('> Error: instrucción no válida')
+    except:
+        print ('Error: instrucción no válida')
+        resultado_gramatica.append('> Error: instrucción no válida')
     return resultado_gramatica
 
 def prueba_sintactica(data):
