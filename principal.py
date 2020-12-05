@@ -25,11 +25,11 @@ class mywindow(QMainWindow):
         datos = self.ui.text_codigo.toPlainText().strip()
 
         resultado_lexico = g.prueba(datos)
-        # self.ui.text_lexico.setText("Analizando lexico")
         cadena= ''
         for lex in resultado_lexico:
             cadena += lex + "\n"
         self.ui.text_lexico.setText(cadena)
+        self.ui.b_lexico.setEnabled(False)
         
     def ev_sintactico(self):
         self.ui.text_sintactico.setText('')
@@ -43,6 +43,7 @@ class mywindow(QMainWindow):
             cadena += item + "\n"
         #mostramos en pantalla
         self.ui.text_sintactico.setText( cadena )
+        self.ui.b_sintactico.setEnabled(False)
 
     def ev_cargar(self):
 
@@ -64,10 +65,12 @@ class mywindow(QMainWindow):
     def ev_limpiar_lexico(self):
         self.ui.text_lexico.setText('')
         g.resultado_lexema.clear()
+        self.ui.b_lexico.setEnabled(True)
 
     def ev_limpiar_sintactico(self):
         self.ui.text_sintactico.setText('')
         g.resultado_gramatica.clear()
+        self.ui.b_sintactico.setEnabled(True)
 
 def window():
     app = QApplication(sys.argv)
