@@ -4,7 +4,7 @@ from expresiones import *
 from instrucciones import *
 
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from mydesign import Ui_MainWindow  # importing our generated file
 import sys
 
@@ -100,14 +100,14 @@ def procesar_instrucciones(instrucciones, ts) :
 
 
 
-f = open("./test/test1.txt", "r")
-input = f.read()
+#f = open("./test/test1.txt", "r")
+#input = f.read()
 
 
-instrucciones = g.parse(input)
+#instrucciones = g.parse(input)
 
-ts_global = TS.TablaDeSimbolos()
-procesar_instrucciones(instrucciones, ts_global)
+#ts_global = TS.TablaDeSimbolos()
+#procesar_instrucciones(instrucciones, ts_global)
 
 class mywindow(QMainWindow):
 
@@ -118,6 +118,9 @@ class mywindow(QMainWindow):
 
         self.ui.b_lexico.clicked.connect(self.ev_lexico)
         self.ui.b_sintactico.clicked.connect(self.ev_sintactico)
+
+        self.ui.b_cargar.clicked.connect(self.ev_cargar)
+        self.ui.b_limpiar.clicked.connect(self.ev_limpiar)
 
     def ev_lexico(self):
         self.ui.text_lexico.setText('')
@@ -142,6 +145,23 @@ class mywindow(QMainWindow):
             cadena += item + "\n"
         # mostramos en pantalla
         self.ui.text_sintactico.setText( cadena )
+
+    def ev_cargar(self):
+
+        dlg = QFileDialog()
+        if dlg.exec_():
+            filenames = dlg.selectedFiles()
+            f = open(filenames[0], 'r')
+
+            with f:
+                data = f.read().strip()
+                if data:
+                    self.ui.text_codigo.setText(data+"\n")
+
+    def ev_limpiar(self):
+        self.ui.text_codigo.setText('')
+        self.ui.text_lexico.setText('')
+        self.ui.text_sintactico.setText('')
 
 def window():
     app = QApplication(sys.argv)
