@@ -61,6 +61,8 @@ class mywindow(QMainWindow):
         self.ui.text_codigo.setText('')
         self.ui.text_lexico.setText('')
         self.ui.text_sintactico.setText('')
+        self.ui.b_lexico.setEnabled(True)
+        self.ui.b_sintactico.setEnabled(True)
 
     def ev_limpiar_lexico(self):
         self.ui.text_lexico.setText('')
