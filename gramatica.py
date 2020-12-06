@@ -123,56 +123,7 @@ def prueba(data):
         estado = "Linea {:4} Tipo {:16} Valor {:16} Posicion {:4}".format(str(tok.lineno),str(tok.type) ,str(tok.value), str(tok.lexpos) )
         resultado_lexema.append(estado)
     return resultado_lexema
-#analizador = lex.lex()
-
-#test = 'test/test1.txt'
-#fp = codecs.open(test, "r", "utf-8")
-#cadena = fp.read()
-#fp.close()
-
-#analizador.input(cadena)
-
-#while True:
-#    tok = analizador.token()
-#    if not tok : break
-#    print (tok)
-
-
-#begin = llitulun
-#end = afn
-#and = kay
-#del = namemn
-#for = pvle
-#is = nguen
-#raise = kenun
-#assert = yafungueltun
-#from = mew
-#lambda = lambda
-#return = weltekun
-#break = watron
-#else = nvli
-#global = kom
-#not = nv
-#try = pepiltun
-#class = fill
-#except = wichu
-#if = li
-#or = kam
-#while = tuntepu
-#continue = petuln
-#exec = deuman
-#import = shunul
-#pass = non
-#with = konme
-#def = kudaw
-#finally = feywaj
-#in = ponwi
-#print = pekenun
-#yield = yield
-#self = inche
-#as = chumnone
-
-
+|
 
 # Construyendo el analizador léxico
 import ply.lex as lex
