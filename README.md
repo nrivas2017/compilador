@@ -4,8 +4,6 @@ El siguiente compilador esta realizado con Python y este consiste en realizar un
 
 ## Ejecutando las pruebas ⚙️
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
 Se debe ingresar manualmente o cargando un archivo de texto el codigo a utilizar, y posteriormente ser analizado. Posee una interfaz simple de usar y entender.
 Posee un archivo de prueba en la carpeta /test
 
