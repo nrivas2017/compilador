@@ -23,8 +23,8 @@ Posee un archivo de prueba en la carpeta /test
 ## Autores ✒️
 
 
-* **Nicolás Rivas** - *Trabajo Inicial* - [nrivas2017](https://github.com/nrivas2017)
-* **Juan Pérez** - *Documentación* - [juandpez](https://github.com/juandpez)
-* **Marco Pedemonte** - *Documentación* - [mpedemonte](https://github.com/mpedemonte)
+* **Nicolás Rivas** [nrivas2017](https://github.com/nrivas2017)
+* **Juan Pérez** [juandpez](https://github.com/juandpez)
+* **Marco Pedemonte** [mpedemonte](https://github.com/mpedemonte)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/nrivas2017/compilador/graphs/contributors) quíenes han participado en este proyecto. 
