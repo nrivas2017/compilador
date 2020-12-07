@@ -26,5 +26,8 @@ Posee un archivo de prueba en la carpeta /test
 * **Nicolás Rivas** [nrivas2017](https://github.com/nrivas2017)
 * **Juan Pérez** [juandpez](https://github.com/juandpez)
 * **Marco Pedemonte** [mpedemonte](https://github.com/mpedemonte)
+* **Rodrigo Becerra** [RodrigoBecerra](https://github.com/RodrigoBecerra)
+
+
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/nrivas2017/compilador/graphs/contributors) quíenes han participado en este proyecto. 
