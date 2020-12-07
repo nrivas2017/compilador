@@ -1,0 +1,29 @@
+rakin a
+a = 3
+
+tuntepu(a>1)
+    llitulun
+        pekenun (a)
+        a=a-1 
+    afn
+
+li (a==1)
+    llitulun
+        pekenun ("a es igual a 1")
+    afn
+nvli
+    llitulun
+        pekenun("a no es igual a 1")
+    afn
+pekenun (a)
+
+
+rakin x
+rakin e
+chillka y
+x = 3
+e = 3
+y ="hola"
+pekenun(x^e)
+
+@comentario

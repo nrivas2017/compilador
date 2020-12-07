@@ -1,0 +1,1521 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMENTARIO
+    COMENTARIO_MULTILINEA
+    NV
+    PONWI
+    PVLE
+
+Grammar
+
+Rule 0     S' -> init
+Rule 1     init -> instrucciones
+Rule 2     instrucciones -> instrucciones instruccion
+Rule 3     definicion_instr -> RAKIN ID
+Rule 4     definicion_instr -> CHILLKA ID
+Rule 5     instrucciones -> instruccion
+Rule 6     instruccion -> pekenun_instr
+Rule 7     instruccion -> definicion_instr
+Rule 8     instruccion -> asignacion_instr
+Rule 9     instruccion -> tuntepu_instr
+Rule 10    instruccion -> li_instr
+Rule 11    instruccion -> nvli_instr
+Rule 12    pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER
+Rule 13    asignacion_instr -> ID ASIGNACION expresion_numerica
+Rule 14    asignacion_instr -> ID ASIGNACION expresion_cadena
+Rule 15    tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+Rule 16    li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+Rule 17    nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+Rule 18    expresion_numerica -> expresion_numerica MAS expresion_numerica
+Rule 19    expresion_numerica -> expresion_numerica MENOS expresion_numerica
+Rule 20    expresion_numerica -> expresion_numerica POR expresion_numerica
+Rule 21    expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica
+Rule 22    expresion_numerica -> expresion_numerica POTENCIA expresion_numerica
+Rule 23    expresion_numerica -> PAREIZQ expresion_numerica PAREDER
+Rule 24    expresion_numerica -> ENTERO
+Rule 25    expresion_numerica -> DECIMAL
+Rule 26    expresion_numerica -> ID
+Rule 27    expresion_cadena -> CADENA
+Rule 28    expresion_cadena -> expresion_cadena CONCAT expresion_cadena
+Rule 29    expresion_cadena -> expresion_numerica
+Rule 30    expresion_logica -> expresion_numerica MAYOR expresion_numerica
+Rule 31    expresion_logica -> expresion_numerica MENOR expresion_numerica
+Rule 32    expresion_logica -> expresion_numerica IGUALQUE expresion_numerica
+Rule 33    expresion_logica -> expresion_numerica DISTINTO expresion_numerica
+
+Terminals, with rules where they appear
+
+AFN                  : 15 16 17 17
+ASIGNACION           : 13 14
+CADENA               : 27
+CHILLKA              : 4
+COMENTARIO           : 
+COMENTARIO_MULTILINEA : 
+CONCAT               : 28
+DECIMAL              : 25
+DISTINTO             : 33
+DIVIDIDO             : 21
+ENTERO               : 24
+ID                   : 3 4 13 14 26
+IGUALQUE             : 32
+LI                   : 16 17
+LLITULUN             : 15 16 17 17
+MAS                  : 18
+MAYOR                : 30
+MENOR                : 31
+MENOS                : 19
+NV                   : 
+NVLI                 : 17
+PAREDER              : 12 15 16 17 23
+PAREIZQ              : 12 15 16 17 23
+PEKENUN              : 12
+PONWI                : 
+POR                  : 20
+POTENCIA             : 22
+PVLE                 : 
+RAKIN                : 3
+TUNTEPU              : 15
+error                : 
+
+Nonterminals, with rules where they appear
+
+asignacion_instr     : 8
+definicion_instr     : 7
+expresion_cadena     : 12 14 28 28
+expresion_logica     : 15 16 17
+expresion_numerica   : 13 18 18 19 19 20 20 21 21 22 22 23 29 30 30 31 31 32 32 33 33
+init                 : 0
+instruccion          : 2 5
+instrucciones        : 1 2 15 16 17 17
+li_instr             : 10
+nvli_instr           : 11
+pekenun_instr        : 6
+tuntepu_instr        : 9
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . init
+    (1) init -> . instrucciones
+    (2) instrucciones -> . instrucciones instruccion
+    (5) instrucciones -> . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    init                           shift and go to state 1
+    instrucciones                  shift and go to state 2
+    instruccion                    shift and go to state 3
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 1
+
+    (0) S' -> init .
+
+
+
+state 2
+
+    (1) init -> instrucciones .
+    (2) instrucciones -> instrucciones . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    $end            reduce using rule 1 (init -> instrucciones .)
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instruccion                    shift and go to state 16
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 3
+
+    (5) instrucciones -> instruccion .
+
+    PEKENUN         reduce using rule 5 (instrucciones -> instruccion .)
+    RAKIN           reduce using rule 5 (instrucciones -> instruccion .)
+    CHILLKA         reduce using rule 5 (instrucciones -> instruccion .)
+    ID              reduce using rule 5 (instrucciones -> instruccion .)
+    TUNTEPU         reduce using rule 5 (instrucciones -> instruccion .)
+    LI              reduce using rule 5 (instrucciones -> instruccion .)
+    $end            reduce using rule 5 (instrucciones -> instruccion .)
+    AFN             reduce using rule 5 (instrucciones -> instruccion .)
+
+
+state 4
+
+    (6) instruccion -> pekenun_instr .
+
+    PEKENUN         reduce using rule 6 (instruccion -> pekenun_instr .)
+    RAKIN           reduce using rule 6 (instruccion -> pekenun_instr .)
+    CHILLKA         reduce using rule 6 (instruccion -> pekenun_instr .)
+    ID              reduce using rule 6 (instruccion -> pekenun_instr .)
+    TUNTEPU         reduce using rule 6 (instruccion -> pekenun_instr .)
+    LI              reduce using rule 6 (instruccion -> pekenun_instr .)
+    $end            reduce using rule 6 (instruccion -> pekenun_instr .)
+    AFN             reduce using rule 6 (instruccion -> pekenun_instr .)
+
+
+state 5
+
+    (7) instruccion -> definicion_instr .
+
+    PEKENUN         reduce using rule 7 (instruccion -> definicion_instr .)
+    RAKIN           reduce using rule 7 (instruccion -> definicion_instr .)
+    CHILLKA         reduce using rule 7 (instruccion -> definicion_instr .)
+    ID              reduce using rule 7 (instruccion -> definicion_instr .)
+    TUNTEPU         reduce using rule 7 (instruccion -> definicion_instr .)
+    LI              reduce using rule 7 (instruccion -> definicion_instr .)
+    $end            reduce using rule 7 (instruccion -> definicion_instr .)
+    AFN             reduce using rule 7 (instruccion -> definicion_instr .)
+
+
+state 6
+
+    (8) instruccion -> asignacion_instr .
+
+    PEKENUN         reduce using rule 8 (instruccion -> asignacion_instr .)
+    RAKIN           reduce using rule 8 (instruccion -> asignacion_instr .)
+    CHILLKA         reduce using rule 8 (instruccion -> asignacion_instr .)
+    ID              reduce using rule 8 (instruccion -> asignacion_instr .)
+    TUNTEPU         reduce using rule 8 (instruccion -> asignacion_instr .)
+    LI              reduce using rule 8 (instruccion -> asignacion_instr .)
+    $end            reduce using rule 8 (instruccion -> asignacion_instr .)
+    AFN             reduce using rule 8 (instruccion -> asignacion_instr .)
+
+
+state 7
+
+    (9) instruccion -> tuntepu_instr .
+
+    PEKENUN         reduce using rule 9 (instruccion -> tuntepu_instr .)
+    RAKIN           reduce using rule 9 (instruccion -> tuntepu_instr .)
+    CHILLKA         reduce using rule 9 (instruccion -> tuntepu_instr .)
+    ID              reduce using rule 9 (instruccion -> tuntepu_instr .)
+    TUNTEPU         reduce using rule 9 (instruccion -> tuntepu_instr .)
+    LI              reduce using rule 9 (instruccion -> tuntepu_instr .)
+    $end            reduce using rule 9 (instruccion -> tuntepu_instr .)
+    AFN             reduce using rule 9 (instruccion -> tuntepu_instr .)
+
+
+state 8
+
+    (10) instruccion -> li_instr .
+
+    PEKENUN         reduce using rule 10 (instruccion -> li_instr .)
+    RAKIN           reduce using rule 10 (instruccion -> li_instr .)
+    CHILLKA         reduce using rule 10 (instruccion -> li_instr .)
+    ID              reduce using rule 10 (instruccion -> li_instr .)
+    TUNTEPU         reduce using rule 10 (instruccion -> li_instr .)
+    LI              reduce using rule 10 (instruccion -> li_instr .)
+    $end            reduce using rule 10 (instruccion -> li_instr .)
+    AFN             reduce using rule 10 (instruccion -> li_instr .)
+
+
+state 9
+
+    (11) instruccion -> nvli_instr .
+
+    PEKENUN         reduce using rule 11 (instruccion -> nvli_instr .)
+    RAKIN           reduce using rule 11 (instruccion -> nvli_instr .)
+    CHILLKA         reduce using rule 11 (instruccion -> nvli_instr .)
+    ID              reduce using rule 11 (instruccion -> nvli_instr .)
+    TUNTEPU         reduce using rule 11 (instruccion -> nvli_instr .)
+    LI              reduce using rule 11 (instruccion -> nvli_instr .)
+    $end            reduce using rule 11 (instruccion -> nvli_instr .)
+    AFN             reduce using rule 11 (instruccion -> nvli_instr .)
+
+
+state 10
+
+    (12) pekenun_instr -> PEKENUN . PAREIZQ expresion_cadena PAREDER
+
+    PAREIZQ         shift and go to state 17
+
+
+state 11
+
+    (3) definicion_instr -> RAKIN . ID
+
+    ID              shift and go to state 18
+
+
+state 12
+
+    (13) asignacion_instr -> ID . ASIGNACION expresion_numerica
+    (14) asignacion_instr -> ID . ASIGNACION expresion_cadena
+
+    ASIGNACION      shift and go to state 19
+
+
+state 13
+
+    (4) definicion_instr -> CHILLKA . ID
+
+    ID              shift and go to state 20
+
+
+state 14
+
+    (15) tuntepu_instr -> TUNTEPU . PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+
+    PAREIZQ         shift and go to state 21
+
+
+state 15
+
+    (16) li_instr -> LI . PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> LI . PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    PAREIZQ         shift and go to state 22
+
+
+state 16
+
+    (2) instrucciones -> instrucciones instruccion .
+
+    PEKENUN         reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    RAKIN           reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    CHILLKA         reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    ID              reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    TUNTEPU         reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    LI              reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    $end            reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    AFN             reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+
+
+state 17
+
+    (12) pekenun_instr -> PEKENUN PAREIZQ . expresion_cadena PAREDER
+    (27) expresion_cadena -> . CADENA
+    (28) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (29) expresion_cadena -> . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    CADENA          shift and go to state 25
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_cadena               shift and go to state 24
+    expresion_numerica             shift and go to state 26
+
+state 18
+
+    (3) definicion_instr -> RAKIN ID .
+
+    PEKENUN         reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    RAKIN           reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    CHILLKA         reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    ID              reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    TUNTEPU         reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    LI              reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    $end            reduce using rule 3 (definicion_instr -> RAKIN ID .)
+    AFN             reduce using rule 3 (definicion_instr -> RAKIN ID .)
+
+
+state 19
+
+    (13) asignacion_instr -> ID ASIGNACION . expresion_numerica
+    (14) asignacion_instr -> ID ASIGNACION . expresion_cadena
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+    (27) expresion_cadena -> . CADENA
+    (28) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (29) expresion_cadena -> . expresion_numerica
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+    CADENA          shift and go to state 25
+
+    expresion_numerica             shift and go to state 30
+    expresion_cadena               shift and go to state 31
+
+state 20
+
+    (4) definicion_instr -> CHILLKA ID .
+
+    PEKENUN         reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    RAKIN           reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    CHILLKA         reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    ID              reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    TUNTEPU         reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    LI              reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    $end            reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+    AFN             reduce using rule 4 (definicion_instr -> CHILLKA ID .)
+
+
+state 21
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN
+    (30) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
+    (31) expresion_logica -> . expresion_numerica MENOR expresion_numerica
+    (32) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
+    (33) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_logica               shift and go to state 32
+    expresion_numerica             shift and go to state 33
+
+state 22
+
+    (16) li_instr -> LI PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> LI PAREIZQ . expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+    (30) expresion_logica -> . expresion_numerica MAYOR expresion_numerica
+    (31) expresion_logica -> . expresion_numerica MENOR expresion_numerica
+    (32) expresion_logica -> . expresion_numerica IGUALQUE expresion_numerica
+    (33) expresion_logica -> . expresion_numerica DISTINTO expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_logica               shift and go to state 34
+    expresion_numerica             shift and go to state 33
+
+state 23
+
+    (23) expresion_numerica -> PAREIZQ . expresion_numerica PAREDER
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 35
+
+state 24
+
+    (12) pekenun_instr -> PEKENUN PAREIZQ expresion_cadena . PAREDER
+    (28) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+
+    PAREDER         shift and go to state 36
+    CONCAT          shift and go to state 37
+
+
+state 25
+
+    (27) expresion_cadena -> CADENA .
+
+    PAREDER         reduce using rule 27 (expresion_cadena -> CADENA .)
+    CONCAT          reduce using rule 27 (expresion_cadena -> CADENA .)
+    PEKENUN         reduce using rule 27 (expresion_cadena -> CADENA .)
+    RAKIN           reduce using rule 27 (expresion_cadena -> CADENA .)
+    CHILLKA         reduce using rule 27 (expresion_cadena -> CADENA .)
+    ID              reduce using rule 27 (expresion_cadena -> CADENA .)
+    TUNTEPU         reduce using rule 27 (expresion_cadena -> CADENA .)
+    LI              reduce using rule 27 (expresion_cadena -> CADENA .)
+    $end            reduce using rule 27 (expresion_cadena -> CADENA .)
+    AFN             reduce using rule 27 (expresion_cadena -> CADENA .)
+
+
+state 26
+
+    (29) expresion_cadena -> expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    PAREDER         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    CONCAT          reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    PEKENUN         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    RAKIN           reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    CHILLKA         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    ID              reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    TUNTEPU         reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    LI              reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    $end            reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    AFN             reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 27
+
+    (24) expresion_numerica -> ENTERO .
+
+    MAS             reduce using rule 24 (expresion_numerica -> ENTERO .)
+    MENOS           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    POR             reduce using rule 24 (expresion_numerica -> ENTERO .)
+    DIVIDIDO        reduce using rule 24 (expresion_numerica -> ENTERO .)
+    POTENCIA        reduce using rule 24 (expresion_numerica -> ENTERO .)
+    PAREDER         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    CONCAT          reduce using rule 24 (expresion_numerica -> ENTERO .)
+    PEKENUN         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    RAKIN           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    CHILLKA         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    ID              reduce using rule 24 (expresion_numerica -> ENTERO .)
+    TUNTEPU         reduce using rule 24 (expresion_numerica -> ENTERO .)
+    LI              reduce using rule 24 (expresion_numerica -> ENTERO .)
+    $end            reduce using rule 24 (expresion_numerica -> ENTERO .)
+    AFN             reduce using rule 24 (expresion_numerica -> ENTERO .)
+    MAYOR           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    MENOR           reduce using rule 24 (expresion_numerica -> ENTERO .)
+    IGUALQUE        reduce using rule 24 (expresion_numerica -> ENTERO .)
+    DISTINTO        reduce using rule 24 (expresion_numerica -> ENTERO .)
+
+
+state 28
+
+    (25) expresion_numerica -> DECIMAL .
+
+    MAS             reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    MENOS           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    POR             reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    DIVIDIDO        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    POTENCIA        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    PAREDER         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    CONCAT          reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    PEKENUN         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    RAKIN           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    CHILLKA         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    ID              reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    TUNTEPU         reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    LI              reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    $end            reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    AFN             reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    MAYOR           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    MENOR           reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    IGUALQUE        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+    DISTINTO        reduce using rule 25 (expresion_numerica -> DECIMAL .)
+
+
+state 29
+
+    (26) expresion_numerica -> ID .
+
+    MAS             reduce using rule 26 (expresion_numerica -> ID .)
+    MENOS           reduce using rule 26 (expresion_numerica -> ID .)
+    POR             reduce using rule 26 (expresion_numerica -> ID .)
+    DIVIDIDO        reduce using rule 26 (expresion_numerica -> ID .)
+    POTENCIA        reduce using rule 26 (expresion_numerica -> ID .)
+    PAREDER         reduce using rule 26 (expresion_numerica -> ID .)
+    CONCAT          reduce using rule 26 (expresion_numerica -> ID .)
+    PEKENUN         reduce using rule 26 (expresion_numerica -> ID .)
+    RAKIN           reduce using rule 26 (expresion_numerica -> ID .)
+    CHILLKA         reduce using rule 26 (expresion_numerica -> ID .)
+    ID              reduce using rule 26 (expresion_numerica -> ID .)
+    TUNTEPU         reduce using rule 26 (expresion_numerica -> ID .)
+    LI              reduce using rule 26 (expresion_numerica -> ID .)
+    $end            reduce using rule 26 (expresion_numerica -> ID .)
+    AFN             reduce using rule 26 (expresion_numerica -> ID .)
+    MAYOR           reduce using rule 26 (expresion_numerica -> ID .)
+    MENOR           reduce using rule 26 (expresion_numerica -> ID .)
+    IGUALQUE        reduce using rule 26 (expresion_numerica -> ID .)
+    DISTINTO        reduce using rule 26 (expresion_numerica -> ID .)
+
+
+state 30
+
+    (13) asignacion_instr -> ID ASIGNACION expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+    (29) expresion_cadena -> expresion_numerica .
+
+  ! reduce/reduce conflict for PEKENUN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for RAKIN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for CHILLKA resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for ID resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for TUNTEPU resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for LI resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for $end resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+  ! reduce/reduce conflict for AFN resolved using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    PEKENUN         reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    RAKIN           reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    CHILLKA         reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    ID              reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    TUNTEPU         reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    LI              reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    $end            reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    AFN             reduce using rule 13 (asignacion_instr -> ID ASIGNACION expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+    CONCAT          reduce using rule 29 (expresion_cadena -> expresion_numerica .)
+
+  ! PEKENUN         [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! RAKIN           [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! CHILLKA         [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! ID              [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! TUNTEPU         [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! LI              [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! $end            [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+  ! AFN             [ reduce using rule 29 (expresion_cadena -> expresion_numerica .) ]
+
+
+state 31
+
+    (14) asignacion_instr -> ID ASIGNACION expresion_cadena .
+    (28) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+
+    PEKENUN         reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    RAKIN           reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    CHILLKA         reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    ID              reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    TUNTEPU         reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    LI              reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    $end            reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    AFN             reduce using rule 14 (asignacion_instr -> ID ASIGNACION expresion_cadena .)
+    CONCAT          shift and go to state 37
+
+
+state 32
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica . PAREDER LLITULUN instrucciones AFN
+
+    PAREDER         shift and go to state 43
+
+
+state 33
+
+    (30) expresion_logica -> expresion_numerica . MAYOR expresion_numerica
+    (31) expresion_logica -> expresion_numerica . MENOR expresion_numerica
+    (32) expresion_logica -> expresion_numerica . IGUALQUE expresion_numerica
+    (33) expresion_logica -> expresion_numerica . DISTINTO expresion_numerica
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    MAYOR           shift and go to state 44
+    MENOR           shift and go to state 45
+    IGUALQUE        shift and go to state 46
+    DISTINTO        shift and go to state 47
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 34
+
+    (16) li_instr -> LI PAREIZQ expresion_logica . PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> LI PAREIZQ expresion_logica . PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    PAREDER         shift and go to state 48
+
+
+state 35
+
+    (23) expresion_numerica -> PAREIZQ expresion_numerica . PAREDER
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    PAREDER         shift and go to state 49
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 36
+
+    (12) pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .
+
+    PEKENUN         reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    RAKIN           reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    CHILLKA         reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    ID              reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    TUNTEPU         reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    LI              reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    $end            reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+    AFN             reduce using rule 12 (pekenun_instr -> PEKENUN PAREIZQ expresion_cadena PAREDER .)
+
+
+state 37
+
+    (28) expresion_cadena -> expresion_cadena CONCAT . expresion_cadena
+    (27) expresion_cadena -> . CADENA
+    (28) expresion_cadena -> . expresion_cadena CONCAT expresion_cadena
+    (29) expresion_cadena -> . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    CADENA          shift and go to state 25
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_cadena               shift and go to state 50
+    expresion_numerica             shift and go to state 26
+
+state 38
+
+    (18) expresion_numerica -> expresion_numerica MAS . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 51
+
+state 39
+
+    (19) expresion_numerica -> expresion_numerica MENOS . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 52
+
+state 40
+
+    (20) expresion_numerica -> expresion_numerica POR . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 53
+
+state 41
+
+    (21) expresion_numerica -> expresion_numerica DIVIDIDO . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 54
+
+state 42
+
+    (22) expresion_numerica -> expresion_numerica POTENCIA . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 55
+
+state 43
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN
+
+    LLITULUN        shift and go to state 56
+
+
+state 44
+
+    (30) expresion_logica -> expresion_numerica MAYOR . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 57
+
+state 45
+
+    (31) expresion_logica -> expresion_numerica MENOR . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 58
+
+state 46
+
+    (32) expresion_logica -> expresion_numerica IGUALQUE . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 59
+
+state 47
+
+    (33) expresion_logica -> expresion_numerica DISTINTO . expresion_numerica
+    (18) expresion_numerica -> . expresion_numerica MAS expresion_numerica
+    (19) expresion_numerica -> . expresion_numerica MENOS expresion_numerica
+    (20) expresion_numerica -> . expresion_numerica POR expresion_numerica
+    (21) expresion_numerica -> . expresion_numerica DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> . expresion_numerica POTENCIA expresion_numerica
+    (23) expresion_numerica -> . PAREIZQ expresion_numerica PAREDER
+    (24) expresion_numerica -> . ENTERO
+    (25) expresion_numerica -> . DECIMAL
+    (26) expresion_numerica -> . ID
+
+    PAREIZQ         shift and go to state 23
+    ENTERO          shift and go to state 27
+    DECIMAL         shift and go to state 28
+    ID              shift and go to state 29
+
+    expresion_numerica             shift and go to state 60
+
+state 48
+
+    (16) li_instr -> LI PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER . LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    LLITULUN        shift and go to state 61
+
+
+state 49
+
+    (23) expresion_numerica -> PAREIZQ expresion_numerica PAREDER .
+
+    MAS             reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MENOS           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    POR             reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    DIVIDIDO        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    POTENCIA        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PAREDER         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    CONCAT          reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    PEKENUN         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    RAKIN           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    CHILLKA         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    ID              reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    TUNTEPU         reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    LI              reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    $end            reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    AFN             reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MAYOR           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    MENOR           reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    IGUALQUE        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+    DISTINTO        reduce using rule 23 (expresion_numerica -> PAREIZQ expresion_numerica PAREDER .)
+
+
+state 50
+
+    (28) expresion_cadena -> expresion_cadena CONCAT expresion_cadena .
+    (28) expresion_cadena -> expresion_cadena . CONCAT expresion_cadena
+
+  ! shift/reduce conflict for CONCAT resolved as shift
+    PAREDER         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    PEKENUN         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    RAKIN           reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    CHILLKA         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    ID              reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    TUNTEPU         reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    LI              reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    $end            reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    AFN             reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .)
+    CONCAT          shift and go to state 37
+
+  ! CONCAT          [ reduce using rule 28 (expresion_cadena -> expresion_cadena CONCAT expresion_cadena .) ]
+
+
+state 51
+
+    (18) expresion_numerica -> expresion_numerica MAS expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    MAS             reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    MENOS           reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    PAREDER         reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    CONCAT          reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    PEKENUN         reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    RAKIN           reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    CHILLKA         reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    ID              reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    TUNTEPU         reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    LI              reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    $end            reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    AFN             reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    MAYOR           reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    MENOR           reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    IGUALQUE        reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    DISTINTO        reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .)
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+  ! POR             [ reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .) ]
+  ! POTENCIA        [ reduce using rule 18 (expresion_numerica -> expresion_numerica MAS expresion_numerica .) ]
+  ! MAS             [ shift and go to state 38 ]
+  ! MENOS           [ shift and go to state 39 ]
+
+
+state 52
+
+    (19) expresion_numerica -> expresion_numerica MENOS expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    MAS             reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    MENOS           reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    PAREDER         reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    CONCAT          reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    PEKENUN         reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    RAKIN           reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    CHILLKA         reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    ID              reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    TUNTEPU         reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    LI              reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    $end            reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    AFN             reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    MAYOR           reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    MENOR           reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    IGUALQUE        reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    DISTINTO        reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .)
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+  ! POR             [ reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .) ]
+  ! DIVIDIDO        [ reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .) ]
+  ! POTENCIA        [ reduce using rule 19 (expresion_numerica -> expresion_numerica MENOS expresion_numerica .) ]
+  ! MAS             [ shift and go to state 38 ]
+  ! MENOS           [ shift and go to state 39 ]
+
+
+state 53
+
+    (20) expresion_numerica -> expresion_numerica POR expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    MAS             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    MENOS           reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    POR             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    DIVIDIDO        reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    PAREDER         reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    CONCAT          reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    PEKENUN         reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    RAKIN           reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    CHILLKA         reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    ID              reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    TUNTEPU         reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    LI              reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    $end            reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    AFN             reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    MAYOR           reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    MENOR           reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    IGUALQUE        reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    DISTINTO        reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .)
+    POTENCIA        shift and go to state 42
+
+  ! POTENCIA        [ reduce using rule 20 (expresion_numerica -> expresion_numerica POR expresion_numerica .) ]
+  ! MAS             [ shift and go to state 38 ]
+  ! MENOS           [ shift and go to state 39 ]
+  ! POR             [ shift and go to state 40 ]
+  ! DIVIDIDO        [ shift and go to state 41 ]
+
+
+state 54
+
+    (21) expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    MAS             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    MENOS           reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    POR             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    DIVIDIDO        reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    PAREDER         reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    CONCAT          reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    PEKENUN         reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    RAKIN           reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    CHILLKA         reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    ID              reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    TUNTEPU         reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    LI              reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    $end            reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    AFN             reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    MAYOR           reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    MENOR           reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    IGUALQUE        reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    DISTINTO        reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .)
+    POTENCIA        shift and go to state 42
+
+  ! POTENCIA        [ reduce using rule 21 (expresion_numerica -> expresion_numerica DIVIDIDO expresion_numerica .) ]
+  ! MAS             [ shift and go to state 38 ]
+  ! MENOS           [ shift and go to state 39 ]
+  ! POR             [ shift and go to state 40 ]
+  ! DIVIDIDO        [ shift and go to state 41 ]
+
+
+state 55
+
+    (22) expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    MAS             reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    MENOS           reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    POR             reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    DIVIDIDO        reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    POTENCIA        reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    PAREDER         reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    CONCAT          reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    PEKENUN         reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    RAKIN           reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    CHILLKA         reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    ID              reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    TUNTEPU         reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    LI              reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    $end            reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    AFN             reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    MAYOR           reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    MENOR           reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    IGUALQUE        reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+    DISTINTO        reduce using rule 22 (expresion_numerica -> expresion_numerica POTENCIA expresion_numerica .)
+
+  ! MAS             [ shift and go to state 38 ]
+  ! MENOS           [ shift and go to state 39 ]
+  ! POR             [ shift and go to state 40 ]
+  ! DIVIDIDO        [ shift and go to state 41 ]
+  ! POTENCIA        [ shift and go to state 42 ]
+
+
+state 56
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN . instrucciones AFN
+    (2) instrucciones -> . instrucciones instruccion
+    (5) instrucciones -> . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instrucciones                  shift and go to state 62
+    instruccion                    shift and go to state 3
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 57
+
+    (30) expresion_logica -> expresion_numerica MAYOR expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    PAREDER         reduce using rule 30 (expresion_logica -> expresion_numerica MAYOR expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 58
+
+    (31) expresion_logica -> expresion_numerica MENOR expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    PAREDER         reduce using rule 31 (expresion_logica -> expresion_numerica MENOR expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 59
+
+    (32) expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    PAREDER         reduce using rule 32 (expresion_logica -> expresion_numerica IGUALQUE expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 60
+
+    (33) expresion_logica -> expresion_numerica DISTINTO expresion_numerica .
+    (18) expresion_numerica -> expresion_numerica . MAS expresion_numerica
+    (19) expresion_numerica -> expresion_numerica . MENOS expresion_numerica
+    (20) expresion_numerica -> expresion_numerica . POR expresion_numerica
+    (21) expresion_numerica -> expresion_numerica . DIVIDIDO expresion_numerica
+    (22) expresion_numerica -> expresion_numerica . POTENCIA expresion_numerica
+
+    PAREDER         reduce using rule 33 (expresion_logica -> expresion_numerica DISTINTO expresion_numerica .)
+    MAS             shift and go to state 38
+    MENOS           shift and go to state 39
+    POR             shift and go to state 40
+    DIVIDIDO        shift and go to state 41
+    POTENCIA        shift and go to state 42
+
+
+state 61
+
+    (16) li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN . instrucciones AFN
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN . instrucciones AFN NVLI LLITULUN instrucciones AFN
+    (2) instrucciones -> . instrucciones instruccion
+    (5) instrucciones -> . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instrucciones                  shift and go to state 63
+    instruccion                    shift and go to state 3
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 62
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones . AFN
+    (2) instrucciones -> instrucciones . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    AFN             shift and go to state 64
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instruccion                    shift and go to state 16
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 63
+
+    (16) li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones . AFN
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones . AFN NVLI LLITULUN instrucciones AFN
+    (2) instrucciones -> instrucciones . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    AFN             shift and go to state 65
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instruccion                    shift and go to state 16
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 64
+
+    (15) tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .
+
+    PEKENUN         reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    RAKIN           reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    CHILLKA         reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    ID              reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    TUNTEPU         reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    LI              reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    $end            reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    AFN             reduce using rule 15 (tuntepu_instr -> TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+
+
+state 65
+
+    (16) li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN . NVLI LLITULUN instrucciones AFN
+
+    PEKENUN         reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    RAKIN           reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    CHILLKA         reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    ID              reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    TUNTEPU         reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    LI              reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    $end            reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    AFN             reduce using rule 16 (li_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN .)
+    NVLI            shift and go to state 66
+
+
+state 66
+
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI . LLITULUN instrucciones AFN
+
+    LLITULUN        shift and go to state 67
+
+
+state 67
+
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN . instrucciones AFN
+    (2) instrucciones -> . instrucciones instruccion
+    (5) instrucciones -> . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instrucciones                  shift and go to state 68
+    instruccion                    shift and go to state 3
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 68
+
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones . AFN
+    (2) instrucciones -> instrucciones . instruccion
+    (6) instruccion -> . pekenun_instr
+    (7) instruccion -> . definicion_instr
+    (8) instruccion -> . asignacion_instr
+    (9) instruccion -> . tuntepu_instr
+    (10) instruccion -> . li_instr
+    (11) instruccion -> . nvli_instr
+    (12) pekenun_instr -> . PEKENUN PAREIZQ expresion_cadena PAREDER
+    (3) definicion_instr -> . RAKIN ID
+    (4) definicion_instr -> . CHILLKA ID
+    (13) asignacion_instr -> . ID ASIGNACION expresion_numerica
+    (14) asignacion_instr -> . ID ASIGNACION expresion_cadena
+    (15) tuntepu_instr -> . TUNTEPU PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (16) li_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN
+    (17) nvli_instr -> . LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN
+
+    AFN             shift and go to state 69
+    PEKENUN         shift and go to state 10
+    RAKIN           shift and go to state 11
+    CHILLKA         shift and go to state 13
+    ID              shift and go to state 12
+    TUNTEPU         shift and go to state 14
+    LI              shift and go to state 15
+
+    instruccion                    shift and go to state 16
+    pekenun_instr                  shift and go to state 4
+    definicion_instr               shift and go to state 5
+    asignacion_instr               shift and go to state 6
+    tuntepu_instr                  shift and go to state 7
+    li_instr                       shift and go to state 8
+    nvli_instr                     shift and go to state 9
+
+state 69
+
+    (17) nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .
+
+    PEKENUN         reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    RAKIN           reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    CHILLKA         reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    ID              reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    TUNTEPU         reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    LI              reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    $end            reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+    AFN             reduce using rule 17 (nvli_instr -> LI PAREIZQ expresion_logica PAREDER LLITULUN instrucciones AFN NVLI LLITULUN instrucciones AFN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for CONCAT in state 50 resolved as shift
+WARNING: reduce/reduce conflict in state 30 resolved using rule (asignacion_instr -> ID ASIGNACION expresion_numerica)
+WARNING: rejected rule (expresion_cadena -> expresion_numerica) in state 30
