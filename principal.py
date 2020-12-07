@@ -48,6 +48,8 @@ class mywindow(QMainWindow):
         self.ui.text_sintactico.setText('')
         self.ui.b_lexico.setEnabled(True)
         self.ui.b_sintactico.setEnabled(True)
+        g.resultado_lexema.clear()
+        g.resultado_gramatica.clear()
     def ev_limpiar_lexico(self):
         self.ui.text_lexico.setText('')
         g.resultado_lexema.clear()
