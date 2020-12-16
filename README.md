@@ -22,7 +22,7 @@ En la seccion inferior de la interfaz se incluyen 2 secciones de texto para reci
 
 * ![Captura](img/subir.jpg) El boton de carga abre una ventana para realizar una busqueda en el disco para cargar un archivo de texto a la interfaz.
 * ![Captura](img/limpiar.jpg) El boton de limpieza en la seccion superior realizar una limpieza a las 3 secciones de texto en la interfaz.
-* ![Captura](img/cargar.jpg) El grupo de estos 2 botones para las secciones inferiores realiza una limpieza o analisis en la seccion correspondiente, ya sea lexico o sintactico.
+* ![Captura](img/limpiar_analizar.jpg) El grupo de estos 2 botones para las secciones inferiores realiza una limpieza o analisis en la seccion correspondiente, ya sea lexico o sintactico.
 
 ## Ejecutando las pruebas ⚙️
 
