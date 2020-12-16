@@ -20,6 +20,10 @@ Para empezar necesitamos conocer la notacion de las palabras reservadas que usan
 El codigo o instrucciones que analizara el interpretador reconocera las palabras reservadas explicadas anteriormente segun la funcion descrita. La interfaz del compilador contiene una seccion exclusiva para escribir el codigo a analizar. En esta seccion puedes escribir un texto manualmente, o utilizar el primer boton de la parte superior que sirve para importar un archivo de texto, Se incluye en el repositorio un archivo de texto en la carpeta /test con codigo de ejemplo para realizar una interpretacion. 
 En la seccion inferior de la interfaz se incluyen 2 secciones de texto para recibiri y mostrar el analisis correspondiente, ya sea lexico o sintactico. En esta seccion se ubican 2 botones correspondientes para realizar el analisis o borrar/limpiar el cuadro. En la seccion superior tambien se incluye un boton para limpiar, pero este realiza una limpieza en las 3 secciones de texto.
 
+* ![Captura](img/subir.jpg) El boton de carga abre una ventana para realizar una busqueda en el disco para cargar un archivo de texto a la interfaz.
+* ![Captura](img/limpiar.jpg) El boton de limpieza en la seccion superior realizar una limpieza a las 3 secciones de texto en la interfaz.
+* ![Captura](img/cargar.jpg) El grupo de estos 2 botones para las secciones inferiores realiza una limpieza o analisis en la seccion correspondiente, ya sea lexico o sintactico.
+
 ## Ejecutando las pruebas ⚙️
 
 Se debe ingresar manualmente o cargando un archivo de texto el codigo a utilizar, y posteriormente ser analizado. Posee una interfaz simple de usar y entender.
